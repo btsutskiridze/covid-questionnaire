@@ -1,3 +1,73 @@
 <template>
-  <base-container page="2"></base-container>
+  <base-questions-layout page="2">
+    <div>
+      <base-radio-question>
+        <p>გაქვს გადატანილი Covid-19?*</p>
+        <template #options>
+          <radio-input value="yes" name="had_covid" label-value="კი" />
+          <radio-input value="no" name="had_covid" label-value="არა" />
+          <radio-input value="now" name="had_covid" label-value="ახლა მაქვს" />
+        </template>
+      </base-radio-question>
+      <base-radio-question>
+        <p>ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
+        <template #options>
+          <radio-input value="yes" name="had_antibody_test" label-value="კი" />
+          <radio-input value="no" name="had_antibody_test" label-value="არა" />
+        </template>
+      </base-radio-question>
+      <base-radio-question>
+        <p class="leading-7 whitespace-nowrap">
+          თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი <br />
+          რიცხვი და ანტისხეულების რაოდენობა*
+        </p>
+        <template #options>
+          <div class="pl-2">
+            <form-input name="test_date" placeholder="რიცხვი" />
+            <form-input name="number" placeholder="ანტისხეულების რაოდენობა" />
+          </div>
+        </template>
+      </base-radio-question>
+      <base-radio-question>
+        <p>
+          მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br />
+          როდის გქონდა Covid-19*
+        </p>
+        <template #options>
+          <div class="pl-2">
+            <form-input name="test_date" placeholder="დდ/თთ/წწ" />
+          </div>
+        </template>
+      </base-radio-question>
+    </div>
+    <template #image>
+      <img
+        class="w-100% relative top-[-1.1rem] left-4"
+        src="../assets/images/questionnaire-view-svg.svg"
+        alt="identification image"
+      />
+    </template>
+    <template #arrows>
+      <div class="flex justify-center fixed left-[45%] bottom-[10%] gap-28">
+        <router-link :to="{ name: 'identification' }">
+          <previous-arrow-icon />
+        </router-link>
+        <router-link :to="{ name: 'home' }">
+          <next-arrow-icon />
+        </router-link>
+      </div>
+    </template>
+  </base-questions-layout>
 </template>
+
+<script>
+import RadioInput from "../components/form/RadioInput.vue";
+import FormInput from "../components/form/FormInput.vue";
+
+export default {
+  components: {
+    RadioInput,
+    FormInput,
+  },
+};
+</script>
