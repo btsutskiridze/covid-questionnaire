@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[5%] lg:px-[12.5rem] py-16 h-screen">
+  <div class="px-[5%] lg:px-[12.5rem] pt-16 min-h-screen">
     <the-header :page="page" />
     <slot></slot>
   </div>
