@@ -1,7 +1,5 @@
 <template>
-  <div class="grid place-items-center h-screen">
-    <h1>კოვიდი</h1>
-  </div>
+  <router-view></router-view>
 </template>
 
 <style>
