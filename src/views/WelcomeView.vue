@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col justify-center items-center gap-16 h-screen bg-[#EAEAEA]"
-  >
+  <div class="flex flex-col justify-center items-center gap-16 h-screen">
     <redberry-icon />
     <router-link :to="{ name: 'identification' }">
       <p
