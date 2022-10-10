@@ -16,7 +16,7 @@ import RedberryWordIcon from "../icons/RedberryWordIcon.vue";
 
 export default {
   props: {
-    page: Number,
+    page: String,
   },
   components: {
     RedberryWordIcon,
