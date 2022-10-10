@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-stroke-1 {
+  -webkit-text-stroke-width: 1px;
+}
+
+.text-stroke-color-main {
+  -webkit-text-stroke-color: #232323;
+}
