@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Anonymus pro";
+  src: local("Anonymus pro"),
+    url(./fonts/AnonymousPro-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "BGP Arial";
+  src: local("BGP Arial"), url(./fonts/bpg_arial_2009.ttf) format("truetype");
+}
+
+.font-anonymus-pro {
+  font-family: "Anonymus pro";
+}
+
+.font-bgp-arial {
+  font-family: "BGP Arial";
+}
+
 .text-stroke-1 {
   -webkit-text-stroke-width: 1px;
 }
