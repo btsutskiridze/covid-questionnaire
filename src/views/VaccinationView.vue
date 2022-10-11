@@ -38,17 +38,17 @@
       <p>რას ელოდები?*</p>
       <template #options>
         <radio-input
-          value="first_dosage_and_registered_on_the_second"
+          value="registered_and_waiting_for_the_date"
           name="vaccination_stage"
           label-value="დარეგისტრირებული ვარ და ველოდები რიცხვს"
         />
         <radio-input
-          value="fully_vaccinated"
+          value="not_planning"
           name="vaccination_stage"
           label-value="არ ვგეგმავ"
         />
         <radio-input
-          value="first_dosage_and_not_registered_on_the_second"
+          value="had_covid_and_planning_to_get_vaccinated"
           name="vaccination_stage"
           label-value="გადატანილი მაქვს და ვგეგმავ აცრას"
         />
@@ -81,7 +81,7 @@
         <router-link :to="{ name: 'questionnaire' }">
           <previous-arrow-icon />
         </router-link>
-        <router-link :to="{ name: 'home' }">
+        <router-link :to="{ name: 'suggestions' }">
           <next-arrow-icon />
         </router-link>
       </div>

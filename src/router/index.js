@@ -4,7 +4,7 @@ import WelcomeView from "../views/WelcomeView.vue";
 import IdentificationView from "../views/IdentificationView.vue";
 import CovidQuestionnaireView from "../views/CovidQuestionnaireView.vue";
 import VaccinationView from "../views/VaccinationView.vue";
-
+import SuggestionsView from "../views/SuggestionsView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -27,6 +27,11 @@ const router = createRouter({
       path: "/vaccination",
       name: "vaccination",
       component: VaccinationView,
+    },
+    {
+      path: "/suggestions",
+      name: "suggestions",
+      component: SuggestionsView,
     },
     { path: "/:pathMatch(.*)*", name: "NotFound", redirect: "/" },
   ],
