@@ -1,5 +1,5 @@
 <template>
-  <base-questions-layout page="1">
+  <base-questions-container page="1">
     <div>
       <base-input
         name="fistname"
@@ -40,7 +40,7 @@
         </router-link>
       </div>
     </template>
-  </base-questions-layout>
+  </base-questions-container>
 </template>
 
 <script>

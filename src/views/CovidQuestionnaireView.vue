@@ -1,22 +1,22 @@
 <template>
-  <base-questions-layout page="2">
+  <base-questions-container page="2">
     <div>
-      <base-radio-question>
+      <base-question-layout>
         <p>გაქვს გადატანილი Covid-19?*</p>
         <template #options>
           <base-radio value="yes" name="had_covid" label-value="კი" />
           <base-radio value="no" name="had_covid" label-value="არა" />
           <base-radio value="now" name="had_covid" label-value="ახლა მაქვს" />
         </template>
-      </base-radio-question>
-      <base-radio-question>
+      </base-question-layout>
+      <base-question-layout>
         <p>ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
         <template #options>
           <base-radio value="yes" name="had_antibody_test" label-value="კი" />
           <base-radio value="no" name="had_antibody_test" label-value="არა" />
         </template>
-      </base-radio-question>
-      <base-radio-question>
+      </base-question-layout>
+      <base-question-layout>
         <p class="leading-7 whitespace-nowrap">
           თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი <br />
           რიცხვი და ანტისხეულების რაოდენობა*
@@ -27,8 +27,8 @@
             <base-input name="number" placeholder="ანტისხეულების რაოდენობა" />
           </div>
         </template>
-      </base-radio-question>
-      <base-radio-question>
+      </base-question-layout>
+      <base-question-layout>
         <p>
           მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br />
           როდის გქონდა Covid-19*
@@ -38,7 +38,7 @@
             <base-input name="test_date" placeholder="დდ/თთ/წწ" />
           </div>
         </template>
-      </base-radio-question>
+      </base-question-layout>
     </div>
     <template #image>
       <img
@@ -57,7 +57,7 @@
         </router-link>
       </div>
     </template>
-  </base-questions-layout>
+  </base-questions-container>
 </template>
 
 <script>

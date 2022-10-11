@@ -1,5 +1,5 @@
 <template>
-  <base-questions-layout page="4">
+  <base-questions-container page="4">
     <p class="text-xl font-normal mt-10">
       რედბერის მთავარი ღირებულება ჩვენი გუნდის <br />
       თითოეული წევრია. გარემო, რომელსაც ჩვენი <br />
@@ -9,7 +9,7 @@
       პანდემიის პერიოდში ერთმანეთსაც იშვიათად <br />ვნახულობთ პირისპირ და
       ყოველდღიური კომუნიკაციაც გაიშვიათდა.
     </p>
-    <base-radio-question v-show="true">
+    <base-question-layout v-show="true">
       <p>
         რა სიხშირით შეიძლება გვქონდეს საერთო <br />
         არაფორმალური ონლაინ შეხვედრები, სადაც ყველა <br />
@@ -37,8 +37,8 @@
           label-value="თვეში ერთხელ"
         />
       </template>
-    </base-radio-question>
-    <base-radio-question v-show="true">
+    </base-question-layout>
+    <base-question-layout v-show="true">
       <p>
         კვირაში რამდენი დღე ისურვებდი <br />
         ოფისიდან მუშაობას?*
@@ -75,8 +75,8 @@
           label-value="5"
         />
       </template>
-    </base-radio-question>
-    <base-radio-question>
+    </base-question-layout>
+    <base-question-layout>
       <p>რას ფიქრობ ფიზიკურ შეკრებებზე?</p>
       <template #options>
         <textarea
@@ -85,8 +85,8 @@
           class="w-full h-[11.2rem] bg-[#eaeaea] px-5 py-3 text-[#232323] text-lg font-normal border-[0.8px] border-[#232323] outline-none hover:outline-none"
         ></textarea>
       </template>
-    </base-radio-question>
-    <base-radio-question>
+    </base-question-layout>
+    <base-question-layout>
       <p>
         რას ფიქრობ არსებულ გარემოზე: <br />
         რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?
@@ -98,13 +98,15 @@
           class="w-full h-[11.2rem] bg-[#eaeaea] px-5 py-3 text-[#232323] text-lg font-normal border-[0.8px] border-[#232323] outline-none hover:outline-none"
         ></textarea>
       </template>
-    </base-radio-question>
+    </base-question-layout>
     <div class="text-right">
-      <button
-        class="bg-[#208298] w-[11.2rem] mt-14 mb-44 py-4 px-7 rounded-[42px] text-white"
-      >
-        დასრულება
-      </button>
+      <a href="/thankyou">
+        <button
+          class="bg-[#208298] w-[11.2rem] mt-14 mb-44 py-4 px-7 rounded-[42px] text-white"
+        >
+          დასრულება
+        </button>
+      </a>
     </div>
     <template #image>
       <img
@@ -118,20 +120,22 @@
         <router-link :to="{ name: 'vaccination' }">
           <previous-arrow-icon />
         </router-link>
-        <router-link :to="{ name: 'home' }" class="invisible">
+        <router-link :to="{ name: 'vaccination' }" class="invisible">
           <next-arrow-icon />
         </router-link>
       </div>
     </template>
-  </base-questions-layout>
+  </base-questions-container>
 </template>
 
 <script>
 import BaseRadio from "../components/UI/form/BaseRadio.vue";
+import BaseQuestionLayout from "../components/UI/BaseQuestionLayout.vue";
 
 export default {
   components: {
     BaseRadio,
+    BaseQuestionLayout,
   },
 };
 </script>

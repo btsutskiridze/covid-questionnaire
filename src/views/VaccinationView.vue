@@ -1,13 +1,13 @@
 <template>
-  <base-questions-layout page="3">
-    <base-radio-question>
+  <base-questions-container page="3">
+    <base-question-layout>
       <p>უკვე აცრილი ხარ?*</p>
       <template #options>
         <base-radio value="yes" name="had_vaccine" label-value="კი" />
         <base-radio value="no" name="had_vaccine" label-value="არა" />
       </template>
-    </base-radio-question>
-    <base-radio-question v-show="false">
+    </base-question-layout>
+    <base-question-layout v-show="false">
       <p>აირჩიე რა ეტაპზე ხარ*</p>
       <template #options>
         <base-radio
@@ -33,8 +33,8 @@
           >
         </p>
       </template>
-    </base-radio-question>
-    <base-radio-question v-show="true">
+    </base-question-layout>
+    <base-question-layout v-show="true">
       <p>რას ელოდები?*</p>
       <template #options>
         <base-radio
@@ -68,7 +68,7 @@
           >
         </p>
       </template>
-    </base-radio-question>
+    </base-question-layout>
     <template #image>
       <img
         class="w-[45rem] relative mt-14 left-[15%]"
@@ -86,15 +86,17 @@
         </router-link>
       </div>
     </template>
-  </base-questions-layout>
+  </base-questions-container>
 </template>
 
 <script>
 import BaseRadio from "../components/UI/form/BaseRadio.vue";
+import BaseQuestionLayout from "../components/UI/BaseQuestionLayout.vue";
 
 export default {
   components: {
     BaseRadio,
+    BaseQuestionLayout,
   },
 };
 </script>
