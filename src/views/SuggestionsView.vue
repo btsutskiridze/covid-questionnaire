@@ -100,13 +100,13 @@
       </template>
     </base-question-layout>
     <div class="text-right">
-      <a href="/thankyou">
+      <router-link to="/thankyou">
         <button
           class="bg-[#208298] w-[11.2rem] mt-14 mb-44 py-4 px-7 rounded-[42px] text-white"
         >
           დასრულება
         </button>
-      </a>
+      </router-link>
     </div>
     <template #image>
       <img
