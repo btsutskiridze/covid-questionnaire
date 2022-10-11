@@ -1,3 +1,137 @@
 <template>
-  <div></div>
+  <base-questions-layout page="4">
+    <p class="text-xl font-normal mt-10">
+      რედბერის მთავარი ღირებულება ჩვენი გუნდის <br />
+      თითოეული წევრია. გარემო, რომელსაც ჩვენი <br />
+      თანამშრომლები ქმნით, ბევრისთვის არის და ყოფილა <br />
+      წლების განმავლობაში მიზნებისთვის ერთად ბრძოლის <br />
+      მიზეზი, ბევრისთვის კი — ჩვენთან გადმოსვლის. <br /><br />
+      პანდემიის პერიოდში ერთმანეთსაც იშვიათად <br />ვნახულობთ პირისპირ და
+      ყოველდღიური კომუნიკაციაც გაიშვიათდა.
+    </p>
+    <base-radio-question v-show="true">
+      <p>
+        რა სიხშირით შეიძლება გვქონდეს საერთო <br />
+        არაფორმალური ონლაინ შეხვედრები, სადაც ყველა <br />
+        სურვილისამებრ ჩაერთვება?*
+      </p>
+      <template #options>
+        <radio-input
+          value="twice_a_week"
+          name="non_formal_meetings"
+          label-value="კვირაში ორჯერ"
+        />
+        <radio-input
+          value="once_a_week"
+          name="non_formal_meetings"
+          label-value="კვირაში ერთხელ"
+        />
+        <radio-input
+          value="once_in_two_weeks"
+          name="non_formal_meetings"
+          label-value="ორ კვირაში ერთხელ"
+        />
+        <radio-input
+          value="once_a_month"
+          name="non_formal_meetings"
+          label-value="თვეში ერთხელ"
+        />
+      </template>
+    </base-radio-question>
+    <base-radio-question v-show="true">
+      <p>
+        კვირაში რამდენი დღე ისურვებდი <br />
+        ოფისიდან მუშაობას?*
+      </p>
+      <template #options>
+        <radio-input
+          value="0"
+          name="number_of_days_from_office"
+          label-value="0"
+        />
+        <radio-input
+          value="1"
+          name="number_of_days_from_office"
+          label-value="1"
+        />
+        <radio-input
+          value="2"
+          name="number_of_days_from_office"
+          label-value="2"
+        />
+        <radio-input
+          value="3"
+          name="number_of_days_from_office"
+          label-value="3"
+        />
+        <radio-input
+          value="4"
+          name="number_of_days_from_office"
+          label-value="4"
+        />
+        <radio-input
+          value="5"
+          name="number_of_days_from_office"
+          label-value="5"
+        />
+      </template>
+    </base-radio-question>
+    <base-radio-question>
+      <p>რას ფიქრობ ფიზიკურ შეკრებებზე?</p>
+      <template #options>
+        <textarea
+          name="what_about_meetings_in_live"
+          id="what_about_meetings_in_live"
+          class="w-full h-[11.2rem] bg-[#eaeaea] px-5 py-3 text-[#232323] text-lg font-normal border-[0.8px] border-[#232323] outline-none hover:outline-none"
+        ></textarea>
+      </template>
+    </base-radio-question>
+    <base-radio-question>
+      <p>
+        რას ფიქრობ არსებულ გარემოზე: <br />
+        რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?
+      </p>
+      <template #options>
+        <textarea
+          name="what_about_meetings_in_live"
+          id="what_about_meetings_in_live"
+          class="w-full h-[11.2rem] bg-[#eaeaea] px-5 py-3 text-[#232323] text-lg font-normal border-[0.8px] border-[#232323] outline-none hover:outline-none"
+        ></textarea>
+      </template>
+    </base-radio-question>
+    <div class="text-right">
+      <button
+        class="bg-[#208298] w-[11.2rem] mt-14 mb-44 py-4 px-7 rounded-[42px] text-white"
+      >
+        დასრულება
+      </button>
+    </div>
+    <template #image>
+      <img
+        class="w-[80%] relative left-[16%] mt-[4.4rem]"
+        src="../assets/images/suggestions-view-svg.svg"
+        alt="identification image"
+      />
+    </template>
+    <template #arrows>
+      <div class="flex justify-center fixed left-[45%] bottom-[10%] gap-28">
+        <router-link :to="{ name: 'vaccination' }">
+          <previous-arrow-icon />
+        </router-link>
+        <router-link :to="{ name: 'home' }" class="invisible">
+          <next-arrow-icon />
+        </router-link>
+      </div>
+    </template>
+  </base-questions-layout>
 </template>
+
+<script>
+import RadioInput from "../components/form/RadioInput.vue";
+
+export default {
+  components: {
+    RadioInput,
+  },
+};
+</script>

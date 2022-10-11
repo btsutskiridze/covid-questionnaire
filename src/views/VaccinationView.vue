@@ -71,7 +71,7 @@
     </base-radio-question>
     <template #image>
       <img
-        class="w-[45rem] relative mt-14 left-[16%]"
+        class="w-[45rem] relative mt-14 left-[15%]"
         src="../assets/images/vaccination-view-svg.svg"
         alt="identification image"
       />
