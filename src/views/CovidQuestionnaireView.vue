@@ -4,16 +4,16 @@
       <base-radio-question>
         <p>გაქვს გადატანილი Covid-19?*</p>
         <template #options>
-          <radio-input value="yes" name="had_covid" label-value="კი" />
-          <radio-input value="no" name="had_covid" label-value="არა" />
-          <radio-input value="now" name="had_covid" label-value="ახლა მაქვს" />
+          <base-radio value="yes" name="had_covid" label-value="კი" />
+          <base-radio value="no" name="had_covid" label-value="არა" />
+          <base-radio value="now" name="had_covid" label-value="ახლა მაქვს" />
         </template>
       </base-radio-question>
       <base-radio-question>
         <p>ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
         <template #options>
-          <radio-input value="yes" name="had_antibody_test" label-value="კი" />
-          <radio-input value="no" name="had_antibody_test" label-value="არა" />
+          <base-radio value="yes" name="had_antibody_test" label-value="კი" />
+          <base-radio value="no" name="had_antibody_test" label-value="არა" />
         </template>
       </base-radio-question>
       <base-radio-question>
@@ -23,8 +23,8 @@
         </p>
         <template #options>
           <div class="pl-2">
-            <form-input name="test_date" placeholder="რიცხვი" />
-            <form-input name="number" placeholder="ანტისხეულების რაოდენობა" />
+            <base-input name="test_date" placeholder="რიცხვი" />
+            <base-input name="number" placeholder="ანტისხეულების რაოდენობა" />
           </div>
         </template>
       </base-radio-question>
@@ -35,7 +35,7 @@
         </p>
         <template #options>
           <div class="pl-2">
-            <form-input name="test_date" placeholder="დდ/თთ/წწ" />
+            <base-input name="test_date" placeholder="დდ/თთ/წწ" />
           </div>
         </template>
       </base-radio-question>
@@ -61,13 +61,13 @@
 </template>
 
 <script>
-import RadioInput from "../components/form/RadioInput.vue";
-import FormInput from "../components/form/FormInput.vue";
+import BaseRadio from "../components/UI/form/BaseRadio.vue";
+import BaseInput from "../components/UI/form/BaseInput.vue";
 
 export default {
   components: {
-    RadioInput,
-    FormInput,
+    BaseRadio,
+    BaseInput,
   },
 };
 </script>

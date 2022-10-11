@@ -3,24 +3,24 @@
     <base-radio-question>
       <p>უკვე აცრილი ხარ?*</p>
       <template #options>
-        <radio-input value="yes" name="had_vaccine" label-value="კი" />
-        <radio-input value="no" name="had_vaccine" label-value="არა" />
+        <base-radio value="yes" name="had_vaccine" label-value="კი" />
+        <base-radio value="no" name="had_vaccine" label-value="არა" />
       </template>
     </base-radio-question>
     <base-radio-question v-show="false">
       <p>აირჩიე რა ეტაპზე ხარ*</p>
       <template #options>
-        <radio-input
+        <base-radio
           value="first_dosage_and_registered_on_the_second"
           name="vaccination_stage"
           label-value="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"
         />
-        <radio-input
+        <base-radio
           value="fully_vaccinated"
           name="vaccination_stage"
           label-value="სრულად აცრილი ვარ"
         />
-        <radio-input
+        <base-radio
           value="first_dosage_and_not_registered_on_the_second"
           name="vaccination_stage"
           label-value="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
@@ -37,17 +37,17 @@
     <base-radio-question v-show="true">
       <p>რას ელოდები?*</p>
       <template #options>
-        <radio-input
+        <base-radio
           value="registered_and_waiting_for_the_date"
           name="vaccination_stage"
           label-value="დარეგისტრირებული ვარ და ველოდები რიცხვს"
         />
-        <radio-input
+        <base-radio
           value="not_planning"
           name="vaccination_stage"
           label-value="არ ვგეგმავ"
         />
-        <radio-input
+        <base-radio
           value="had_covid_and_planning_to_get_vaccinated"
           name="vaccination_stage"
           label-value="გადატანილი მაქვს და ვგეგმავ აცრას"
@@ -90,11 +90,11 @@
 </template>
 
 <script>
-import RadioInput from "../components/form/RadioInput.vue";
+import BaseRadio from "../components/UI/form/BaseRadio.vue";
 
 export default {
   components: {
-    RadioInput,
+    BaseRadio,
   },
 };
 </script>

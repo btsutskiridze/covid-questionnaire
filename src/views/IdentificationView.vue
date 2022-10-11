@@ -1,14 +1,14 @@
 <template>
   <base-questions-layout page="1">
     <div>
-      <form-input
+      <base-input
         name="fistname"
         label-value="სახელი"
         placeholder="სახელი"
         class="mt-11"
       />
-      <form-input name="lastname" label-value="გვარი" placeholder="გვარი" />
-      <form-input
+      <base-input name="lastname" label-value="გვარი" placeholder="გვარი" />
+      <base-input
         name="email"
         label-value="მეილი"
         type="email"
@@ -44,11 +44,11 @@
 </template>
 
 <script>
-import FormInput from "../components/form/FormInput.vue";
+import BaseInput from "../components/UI/form/BaseInput.vue";
 
 export default {
   components: {
-    FormInput,
+    BaseInput,
   },
 };
 </script>

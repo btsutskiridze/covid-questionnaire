@@ -16,22 +16,22 @@
         სურვილისამებრ ჩაერთვება?*
       </p>
       <template #options>
-        <radio-input
+        <base-radio
           value="twice_a_week"
           name="non_formal_meetings"
           label-value="კვირაში ორჯერ"
         />
-        <radio-input
+        <base-radio
           value="once_a_week"
           name="non_formal_meetings"
           label-value="კვირაში ერთხელ"
         />
-        <radio-input
+        <base-radio
           value="once_in_two_weeks"
           name="non_formal_meetings"
           label-value="ორ კვირაში ერთხელ"
         />
-        <radio-input
+        <base-radio
           value="once_a_month"
           name="non_formal_meetings"
           label-value="თვეში ერთხელ"
@@ -44,32 +44,32 @@
         ოფისიდან მუშაობას?*
       </p>
       <template #options>
-        <radio-input
+        <base-radio
           value="0"
           name="number_of_days_from_office"
           label-value="0"
         />
-        <radio-input
+        <base-radio
           value="1"
           name="number_of_days_from_office"
           label-value="1"
         />
-        <radio-input
+        <base-radio
           value="2"
           name="number_of_days_from_office"
           label-value="2"
         />
-        <radio-input
+        <base-radio
           value="3"
           name="number_of_days_from_office"
           label-value="3"
         />
-        <radio-input
+        <base-radio
           value="4"
           name="number_of_days_from_office"
           label-value="4"
         />
-        <radio-input
+        <base-radio
           value="5"
           name="number_of_days_from_office"
           label-value="5"
@@ -127,11 +127,11 @@
 </template>
 
 <script>
-import RadioInput from "../components/form/RadioInput.vue";
+import BaseRadio from "../components/UI/form/BaseRadio.vue";
 
 export default {
   components: {
-    RadioInput,
+    BaseRadio,
   },
 };
 </script>
