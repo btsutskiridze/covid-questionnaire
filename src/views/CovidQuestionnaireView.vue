@@ -52,7 +52,7 @@
         <router-link :to="{ name: 'identification' }">
           <previous-arrow-icon />
         </router-link>
-        <router-link :to="{ name: 'home' }">
+        <router-link :to="{ name: 'vaccination' }">
           <next-arrow-icon />
         </router-link>
       </div>
