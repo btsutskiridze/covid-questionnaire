@@ -71,7 +71,7 @@
     </base-question-layout>
     <template #image>
       <img
-        class="w-[45rem] relative mt-14 left-[15%]"
+        class="w-[84%] relative mt-14 left-[15%]"
         src="../assets/images/vaccination-view-svg.svg"
         alt="identification image"
       />
