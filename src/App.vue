@@ -4,4 +4,9 @@
   </div>
 </template>
 
-<style></style>
+<style>
+html {
+  overflow-y: scroll;
+  overflow-y: overlay;
+}
+</style>
