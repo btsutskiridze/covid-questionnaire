@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import RedberryIcon from "../components/icons/RedberryIcon.vue";
+import RedberryIcon from "@/components/icons/RedberryIcon.vue";
 import { ref } from "vue";
 
 export default {

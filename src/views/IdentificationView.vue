@@ -26,7 +26,7 @@
     <template #image>
       <img
         class="w-100% relative top-[-3.1rem] left-4"
-        src="../assets/images/Identification-view-svg.svg"
+        src="@/assets/images/Identification-view-svg.svg"
         alt="identification image"
       />
     </template>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import BaseInput from "../components/UI/form/BaseInput.vue";
+import BaseInput from "@/components/UI/form/BaseInput.vue";
 
 export default {
   components: {

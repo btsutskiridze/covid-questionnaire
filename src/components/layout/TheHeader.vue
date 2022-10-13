@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import RedberryWordIcon from "../icons/RedberryWordIcon.vue";
+import RedberryWordIcon from "@/components/icons/RedberryWordIcon.vue";
 
 export default {
   props: {

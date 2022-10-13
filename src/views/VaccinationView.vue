@@ -72,7 +72,7 @@
     <template #image>
       <img
         class="w-[84%] relative mt-14 left-[15%]"
-        src="../assets/images/vaccination-view-svg.svg"
+        src="@/assets/images/vaccination-view-svg.svg"
         alt="identification image"
       />
     </template>
@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import BaseRadio from "../components/UI/form/BaseRadio.vue";
-import BaseQuestionLayout from "../components/UI/BaseQuestionLayout.vue";
+import BaseRadio from "@/components/UI/form/BaseRadio.vue";
+import BaseQuestionLayout from "@/components/UI/BaseQuestionLayout.vue";
 
 export default {
   components: {

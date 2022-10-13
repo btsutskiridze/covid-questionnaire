@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import ThankYouTextIcon from "../components/icons/ThankYouTextIcon.vue";
-import BigStarIcon from "../components/icons/BigStarIcon.vue";
-import SmallStarIcon from "../components/icons/SmallStarIcon.vue";
+import ThankYouTextIcon from "@/components/icons/ThankYouTextIcon.vue";
+import BigStarIcon from "@/components/icons/BigStarIcon.vue";
+import SmallStarIcon from "@/components/icons/SmallStarIcon.vue";
 export default {
   components: {
     ThankYouTextIcon,

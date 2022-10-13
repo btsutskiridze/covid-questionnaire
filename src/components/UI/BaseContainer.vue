@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheHeader from "../layout/TheHeader.vue";
+import TheHeader from "@/components/layout/TheHeader.vue";
 export default {
   props: ["page"],
   components: {

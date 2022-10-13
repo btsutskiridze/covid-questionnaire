@@ -111,7 +111,7 @@
     <template #image>
       <img
         class="w-[80%] relative left-[16%] mt-[4.4rem]"
-        src="../assets/images/suggestions-view-svg.svg"
+        src="@/assets/images/suggestions-view-svg.svg"
         alt="identification image"
       />
     </template>
@@ -129,8 +129,8 @@
 </template>
 
 <script>
-import BaseRadio from "../components/UI/form/BaseRadio.vue";
-import BaseQuestionLayout from "../components/UI/BaseQuestionLayout.vue";
+import BaseRadio from "@/components/UI/form/BaseRadio.vue";
+import BaseQuestionLayout from "@/components/UI/BaseQuestionLayout.vue";
 
 export default {
   components: {

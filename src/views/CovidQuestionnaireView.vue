@@ -43,7 +43,7 @@
     <template #image>
       <img
         class="w-100% relative top-[-1.1rem] left-4"
-        src="../assets/images/questionnaire-view-svg.svg"
+        src="@/assets/images/questionnaire-view-svg.svg"
         alt="identification image"
       />
     </template>
@@ -61,8 +61,8 @@
 </template>
 
 <script>
-import BaseRadio from "../components/UI/form/BaseRadio.vue";
-import BaseInput from "../components/UI/form/BaseInput.vue";
+import BaseRadio from "@/components/UI/form/BaseRadio.vue";
+import BaseInput from "@/components/UI/form/BaseInput.vue";
 
 export default {
   components: {
