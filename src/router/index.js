@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+import store from "@/store";
 import WelcomeView from "@/views/WelcomeView.vue";
 import IdentificationView from "@/views/IdentificationView.vue";
 import CovidQuestionnaireView from "@/views/CovidQuestionnaireView.vue";
@@ -23,6 +23,14 @@ const router = createRouter({
       path: "/questionnaire",
       name: "questionnaire",
       component: CovidQuestionnaireView,
+      beforeEnter: (to, from, next) => {
+        console.log(store.state.identificationValidated);
+        if (store.state.identificationValidated) {
+          next();
+          return;
+        }
+        next("/identification");
+      },
     },
     {
       path: "/vaccination",

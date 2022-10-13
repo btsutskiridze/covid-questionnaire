@@ -8,22 +8,48 @@
       >
         {{ labelValue }}*
       </label>
-      <input
+      <Field
         :type="type ? type : 'text'"
         :name="name"
         :id="name"
         :placeholder="placeholder ? placeholder : ''"
         class="px-5 py-3 text-[#232323] text-lg font-normal max-w-lg border-[#232323] border-[0.8px] bg-[#eaeaea] outline-none hover:outline-none"
+        :rules="inputRule"
+        @keyup="saveData"
+        v-model="value"
+        :value="value"
       />
+      <ErrorMessage :name="name" />
     </div>
   </div>
 </template>
 
 <script>
+import { Field, ErrorMessage } from "vee-validate";
+
 export default {
-  props: ["name", "type", "labelValue", "placeholder"],
+  props: ["name", "type", "labelValue", "placeholder", "inputRule"],
+  components: {
+    Field,
+    ErrorMessage,
+  },
   data() {
-    return {};
+    return {
+      value: "",
+    };
+  },
+  mounted() {
+    if (localStorage.getItem(this.name))
+      this.value = localStorage.getItem(this.name);
+  },
+
+  methods: {
+    saveData() {
+      this.$store.dispatch("saveData", {
+        key: this.name,
+        value: this.value,
+      });
+    },
   },
 };
 </script>
