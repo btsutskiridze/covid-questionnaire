@@ -42,9 +42,9 @@
     </div>
     <template #image>
       <img
-        class="w-100% relative top-[-1.1rem] left-4"
-        src="@/assets/images/questionnaire-view-svg.svg"
-        alt="identification image"
+        class="w-[98%] relative top-[-1.1rem] left-4"
+        src="@/assets/images/questionnaire-view.png"
+        alt="questionnaire-view"
       />
     </template>
     <template #arrows>

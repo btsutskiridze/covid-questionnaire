@@ -71,9 +71,9 @@
     </base-question-layout>
     <template #image>
       <img
-        class="w-[84%] relative mt-14 left-[15%]"
-        src="@/assets/images/vaccination-view-svg.svg"
-        alt="identification image"
+        class="w-[84%] relative mt-8 left-[15%]"
+        src="@/assets/images/vaccination-view.png"
+        alt="vaccination-view"
       />
     </template>
     <template #arrows>

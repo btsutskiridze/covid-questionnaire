@@ -110,9 +110,9 @@
     </div>
     <template #image>
       <img
-        class="w-[80%] relative left-[16%] mt-[4.4rem]"
-        src="@/assets/images/suggestions-view-svg.svg"
-        alt="identification image"
+        class="w-[76%] relative left-[16%] mt-[4.4rem]"
+        src="@/assets/images/suggestions-view.png"
+        alt="suggestions-view"
       />
     </template>
     <template #arrows>

@@ -26,8 +26,8 @@
     <template #image>
       <img
         class="w-100% relative top-[-3.1rem] left-4"
-        src="@/assets/images/Identification-view-svg.svg"
-        alt="identification image"
+        src="@/assets/images/identification-view.png"
+        alt="identification-view"
       />
     </template>
     <template #arrows>
