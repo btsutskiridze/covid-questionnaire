@@ -9,14 +9,14 @@
           <base-radio value="now" name="had_covid" label-value="ახლა მაქვს" />
         </template>
       </base-question-layout>
-      <base-question-layout>
+      <base-question-layout v-if="false">
         <p>ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
         <template #options>
           <base-radio value="yes" name="had_antibody_test" label-value="კი" />
           <base-radio value="no" name="had_antibody_test" label-value="არა" />
         </template>
       </base-question-layout>
-      <base-question-layout>
+      <base-question-layout v-if="false">
         <p class="leading-7 whitespace-nowrap">
           თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი <br />
           რიცხვი და ანტისხეულების რაოდენობა*
@@ -28,7 +28,7 @@
           </div>
         </template>
       </base-question-layout>
-      <base-question-layout>
+      <base-question-layout v-if="false">
         <p>
           მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br />
           როდის გქონდა Covid-19*

@@ -99,7 +99,7 @@ export default {
       return true;
     },
     validateEmail(value) {
-      if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@redberry.ge/.test(value)) {
+      if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@redberry.ge\b/.test(value)) {
         return "გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)";
       }
       return true;

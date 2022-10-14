@@ -18,12 +18,18 @@ const router = createRouter({
       path: "/identification",
       name: "identification",
       component: IdentificationView,
+      beforeEnter: () => {
+        localStorage.setItem("identificationValidated", false);
+      },
     },
     {
       path: "/questionnaire",
       name: "questionnaire",
       component: CovidQuestionnaireView,
       beforeEnter: (to, from, next) => {
+        store.state.identificationValidated = JSON.parse(
+          localStorage.getItem("identificationValidated")
+        );
         console.log(store.state.identificationValidated);
         if (store.state.identificationValidated) {
           next();

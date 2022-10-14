@@ -18,7 +18,7 @@ const store = createStore({
   },
   actions: {
     validateFirstPage(context) {
-      this.state.identificationValidated = true;
+      localStorage.setItem("identificationValidated", true);
       console.log({ ...context.state["dataToSubmit"] });
     },
   },
