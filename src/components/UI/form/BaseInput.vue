@@ -19,7 +19,12 @@
         v-model="value"
         :value="value"
       />
-      <ErrorMessage :name="name" />
+      <div class="relative">
+        <ErrorMessage
+          :name="name"
+          class="text-[#F15524] font-normal text-base mt-[6px] absolute ml-5"
+        />
+      </div>
     </div>
   </div>
 </template>

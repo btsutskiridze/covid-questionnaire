@@ -61,20 +61,46 @@ export default {
   },
   methods: {
     validateFirstname(value) {
-      if (!value || value.length < 4) {
-        return "Please enter correct name";
+      if (/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0-9]/.test(value)) {
+        return "სახელის ველი უნდა შეიცავდეს მხოლოდ ანბანის ასოებს";
       }
+
+      if (!/^[ა-ჰ]*$/.test(value)) {
+        return "გთხოვთ თქვენი სახელი შეივანოთ ქართული ასოებით";
+      }
+
+      if (!value || value.length < 3) {
+        return "სახელის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან";
+      }
+
+      if (value.length > 255) {
+        return "სახელის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან";
+      }
+
       return true;
     },
     validateLastname(value) {
-      if (!value || value.length < 4) {
-        return "Please enter correct lastname";
+      if (/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0-9]/.test(value)) {
+        return "გვარის ველი უნდა შეიცავდეს მხოლოდ ანბანის ასოებს";
       }
+
+      if (!/^[ა-ჰ]*$/.test(value)) {
+        return "გთხოვთ თქვენი გვარი შეივანოთ ქართული ასოებით";
+      }
+
+      if (!value || value.length < 3) {
+        return "გვარის ველი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან";
+      }
+
+      if (value.length > 255) {
+        return "გვარის ველი უნდა შედგებოდეს მაქსიმუმ 255 სიმბოლოსგან";
+      }
+
       return true;
     },
     validateEmail(value) {
-      if (!value || value.length < 4) {
-        return "Please enter correct email";
+      if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@redberry.ge/.test(value)) {
+        return "გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)";
       }
       return true;
     },
