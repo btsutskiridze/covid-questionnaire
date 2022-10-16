@@ -1,8 +1,10 @@
 import { createStore } from "vuex";
 import identificationViewModule from "@/store/modules/identificationView";
+import questionnaireViewModule from "@/store/modules/questionnaireView";
 const store = createStore({
   modules: {
     identificationViewModule,
+    questionnaireViewModule,
   },
   state: {
     identificationValidated: false,
