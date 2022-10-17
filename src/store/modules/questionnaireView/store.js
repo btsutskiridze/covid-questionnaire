@@ -1,6 +1,7 @@
 export default {
   state() {
     return {
+      questionnaireValidated: false,
       had_covid: "",
       had_antibody_test: "",
       test_date: "",
@@ -11,6 +12,9 @@ export default {
 
   mutations: {},
   actions: {
+    validateSecondPage() {
+      localStorage.setItem("questionnaireValidated", true);
+    },
     dateValidation(_, value) {
       const inputDate = new Date(value); //taking input as date
       const minDate = new Date("2020-01-01").getTime(); //converting min data to millsec

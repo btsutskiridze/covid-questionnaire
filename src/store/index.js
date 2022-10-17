@@ -7,18 +7,12 @@ const store = createStore({
     questionnaireViewModule,
   },
   state: {
-    identificationValidated: false,
-    questionnaireValidated: false,
     vaccinationValidated: false,
     suggestionsValidated: false,
     dataToSubmit: {},
   },
   mutations: {},
-  actions: {
-    validateFirstPage() {
-      localStorage.setItem("identificationValidated", true);
-    },
-  },
+  actions: {},
 });
 
 export default store;

@@ -180,7 +180,8 @@ export default {
     },
 
     onsubmit() {
-      console.log("helo");
+      this.$store.dispatch("validateSecondPage");
+      this.$router.push({ name: "vaccination" });
     },
   },
 };

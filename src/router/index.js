@@ -27,10 +27,12 @@ const router = createRouter({
       name: "questionnaire",
       component: CovidQuestionnaireView,
       beforeEnter: (to, from, next) => {
+        localStorage.setItem("questionnaireValidated", false);
+
         store.state.identificationValidated = JSON.parse(
           localStorage.getItem("identificationValidated")
         );
-        console.log(store.state.identificationValidated);
+
         if (store.state.identificationValidated) {
           next();
           return;
@@ -42,6 +44,26 @@ const router = createRouter({
       path: "/vaccination",
       name: "vaccination",
       component: VaccinationView,
+      beforeEnter: (to, from, next) => {
+        localStorage.setItem("vaccinationValidated", false);
+        //retriving values from storage
+        store.state.identificationValidated = JSON.parse(
+          localStorage.getItem("identificationValidated")
+        );
+        store.state.questionnaireValidated = JSON.parse(
+          localStorage.getItem("questionnaireValidated")
+        );
+
+        const pagesValid =
+          store.state.questionnaireValidated &&
+          store.state.identificationValidated;
+
+        if (pagesValid) {
+          next();
+          return;
+        }
+        next("/questionnaire");
+      },
     },
     {
       path: "/suggestions",
