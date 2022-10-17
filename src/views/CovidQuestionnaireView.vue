@@ -1,5 +1,5 @@
 <template>
-  <VeeForm>
+  <VeeForm @submit="onsubmit">
     <base-questions-container page="2">
       <div>
         <base-question-layout>
@@ -49,8 +49,18 @@
           </p>
           <template #options>
             <div class="pl-2">
-              <base-input name="test_date" placeholder="რიცხვი" />
-              <base-input name="number" placeholder="ანტისხეულების რაოდენობა" />
+              <base-input
+                name="test_date"
+                placeholder="რიცხვი"
+                @focusin="toggleType"
+                @focusout="toggleType"
+                :input-rule="testDateValidation"
+              />
+              <base-input
+                name="number"
+                placeholder="ანტისხეულების რაოდენობა"
+                :input-rule="numberValidation"
+              />
             </div>
           </template>
         </base-question-layout>
@@ -61,7 +71,13 @@
           </p>
           <template #options>
             <div class="pl-2">
-              <base-input name="covid_date" placeholder="დდ/თთ/წწ" />
+              <base-input
+                name="covid_date"
+                placeholder="დდ/თთ/წწ"
+                @focusin="toggleType"
+                @focusout="toggleType"
+                :input-rule="covidDateValidation"
+              />
             </div>
           </template>
         </base-question-layout>
@@ -102,20 +118,6 @@ export default {
     return {
       hadCovid: false,
       hadAntibodyTest: null,
-      schema: {
-        had_covid: (value) => {
-          if (value) {
-            return true;
-          }
-          return false;
-        },
-        had_antibody_test: (value) => {
-          if (value) {
-            return true;
-          }
-          return false;
-        },
-      },
     };
   },
   mounted() {
@@ -128,7 +130,11 @@ export default {
       this.hadAntibodyTest = false;
     }
   },
+
   methods: {
+    toggleType(e) {
+      e.target.type = e.target.type === "text" ? "date" : "text";
+    },
     firstQuestion(e) {
       if (e.target.checked && e.target.value === "yes") {
         localStorage.setItem("hadCovid", e.target.value);
@@ -151,6 +157,38 @@ export default {
         this.hadAntibodyTest = false;
       }
     },
+
+    testDateValidation(value) {
+      if (!this.hadAntibodyTest || this.hadAntibodyTest === null) return true;
+      else {
+        return this.$store.dispatch("dateValidation", value);
+      }
+    },
+    numberValidation(value) {
+      if (!this.hadAntibodyTest || this.hadAntibodyTest === null) return true;
+      else if (!/^[0-9]+$/.test(value) || !value) {
+        return "გთხოვთ მიუთითოთ სწორი ანტისხეულების რაოდენობა";
+      }
+      return true;
+    },
+
+    covidDateValidation(value) {
+      if (this.hadAntibodyTest === true) return true;
+      else {
+        return this.$store.dispatch("dateValidation", value);
+      }
+    },
+
+    onsubmit() {
+      console.log("helo");
+    },
   },
 };
 </script>
+
+<style>
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+</style>
