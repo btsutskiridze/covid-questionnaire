@@ -180,8 +180,25 @@ export default {
     },
 
     onsubmit() {
-      this.$store.dispatch("validateSecondPage");
-      this.$router.push({ name: "vaccination" });
+      const checked1 = document.querySelector('input[name="had_covid"]:checked')
+        ? document.querySelector('input[name="had_covid"]:checked')
+        : null;
+      const checked2 = document.querySelector(
+        'input[name="had_antibody_test"]:checked'
+      )
+        ? document.querySelector('input[name="had_antibody_test"]:checked')
+        : null;
+
+      if (checked1) {
+        if (
+          (checked1.value === "yes" && checked2) ||
+          checked1.value === "no" ||
+          checked1.value == "now"
+        ) {
+          this.$store.dispatch("validateSecondPage");
+          this.$router.push({ name: "vaccination" });
+        }
+      }
     },
   },
 };
