@@ -69,6 +69,31 @@ const router = createRouter({
       path: "/suggestions",
       name: "suggestions",
       component: SuggestionsView,
+      beforeEnter: (to, from, next) => {
+        localStorage.setItem("suggestionsValidated", false);
+
+        //retriving values from storage
+        store.state.identificationValidated = JSON.parse(
+          localStorage.getItem("identificationValidated")
+        );
+        store.state.questionnaireValidated = JSON.parse(
+          localStorage.getItem("questionnaireValidated")
+        );
+        store.state.vaccinationValidated = JSON.parse(
+          localStorage.getItem("vaccinationValidated")
+        );
+
+        const pagesValid =
+          store.state.questionnaireValidated &&
+          store.state.identificationValidated &&
+          store.state.vaccinationValidated;
+
+        if (pagesValid) {
+          next();
+          return;
+        }
+        next("/questionnaire");
+      },
     },
     {
       path: "/thankyou",

@@ -209,7 +209,7 @@ export default {
       );
 
       if ((checked1 && checked2) || (checked1 && checked3)) {
-        // this.$store.dispatch("thirdPageValidation");
+        this.$store.dispatch("validateThirdPage");
         this.$router.push({ name: "suggestions" });
       }
     },
