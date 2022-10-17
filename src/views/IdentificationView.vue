@@ -106,10 +106,7 @@ export default {
     },
     onsubmit(values) {
       for (let key in values) {
-        this.$store.commit("addData", {
-          key,
-          value: values[key],
-        });
+        localStorage.setItem(key, values[key]);
       }
       this.$store.dispatch("validateFirstPage");
       this.$router.push({ name: "questionnaire" });

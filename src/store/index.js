@@ -13,15 +13,10 @@ const store = createStore({
     suggestionsValidated: false,
     dataToSubmit: {},
   },
-  mutations: {
-    addData(state, payload) {
-      state.dataToSubmit[payload.key] = payload.value;
-    },
-  },
+  mutations: {},
   actions: {
-    validateFirstPage(context) {
+    validateFirstPage() {
       localStorage.setItem("identificationValidated", true);
-      console.log({ ...context.state["dataToSubmit"] });
     },
   },
 });
