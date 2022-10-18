@@ -1,4 +1,5 @@
 export default {
+  namespaced: true,
   state() {
     return {
       identificationValidated: false,
@@ -13,8 +14,16 @@ export default {
     validateFirstPage() {
       localStorage.setItem("identificationValidated", true);
     },
-    saveData(context, payload) {
-      localStorage.setItem(payload.key, payload.value);
+
+    collectData(context) {
+      context.state.first_name = getLocalStorage("first_name");
+      context.state.last_name = getLocalStorage("last_name");
+      context.state.email = getLocalStorage("email");
     },
   },
 };
+
+function getLocalStorage(value) {
+  console.log(localStorage.getItem(value));
+  return localStorage.getItem(value) ? localStorage.getItem(value) : null;
+}

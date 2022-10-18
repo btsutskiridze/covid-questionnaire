@@ -161,7 +161,7 @@ export default {
     testDateValidation(value) {
       if (!this.hadAntibodyTest || this.hadAntibodyTest === null) return true;
       else {
-        return this.$store.dispatch("dateValidation", value);
+        return this.$store.dispatch("questionnaire/dateValidation", value);
       }
     },
     numberValidation(value) {
@@ -175,7 +175,7 @@ export default {
     covidDateValidation(value) {
       if (this.hadAntibodyTest === true) return true;
       else {
-        return this.$store.dispatch("dateValidation", value);
+        return this.$store.dispatch("questionnaire/dateValidation", value);
       }
     },
 
@@ -195,7 +195,7 @@ export default {
           checked1.value === "no" ||
           checked1.value == "now"
         ) {
-          this.$store.dispatch("validateSecondPage");
+          this.$store.dispatch("questionnaire/validateSecondPage");
           this.$router.push({ name: "vaccination" });
         }
       }

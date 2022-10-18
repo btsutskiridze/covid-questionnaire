@@ -1,4 +1,5 @@
 export default {
+  namespaced: true,
   state() {
     return {
       questionnaireValidated: false,
@@ -31,5 +32,19 @@ export default {
         return true;
       }
     },
+    collectData(context) {
+      context.state.had_covid = getLocalStorage("had_covid");
+      context.state.had_antibody_test = getLocalStorage("had_antibody_test")
+        ? true
+        : false;
+      context.state.test_date = getLocalStorage("test_date");
+      context.state.number = getLocalStorage("number");
+      context.state.covid_date = getLocalStorage("covid_date");
+    },
   },
 };
+
+function getLocalStorage(value) {
+  console.log(localStorage.getItem(value));
+  return localStorage.getItem(value) ? localStorage.getItem(value) : null;
+}

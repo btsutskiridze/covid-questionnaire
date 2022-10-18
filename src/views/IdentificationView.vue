@@ -2,7 +2,7 @@
   <VeeForm id="vee-form" @submit="onsubmit">
     <base-questions-container page="1">
       <base-input
-        name="fisrt_name"
+        name="first_name"
         label-value="სახელი"
         placeholder="სახელი"
         class="mt-11"
@@ -108,7 +108,7 @@ export default {
       for (let key in values) {
         localStorage.setItem(key, values[key]);
       }
-      this.$store.dispatch("validateFirstPage");
+      this.$store.dispatch("identification/validateFirstPage");
       this.$router.push({ name: "questionnaire" });
     },
   },
