@@ -150,7 +150,15 @@ export default {
 
       if (checked1 && checked2) {
         console.log("submit");
-        this.$store.dispatch("validatefourthPage");
+
+        this.$store.dispatch("identification/collectData");
+        this.$store.dispatch("questionnaire/collectData");
+        this.$store.dispatch("vaccination/collectData");
+        this.$store.dispatch("suggestions/collectData");
+
+        this.$store.dispatch("collectData");
+
+        this.$store.dispatch("suggestions/validatefourthPage");
         this.$router.push({ name: "thankyou" });
       }
     },
