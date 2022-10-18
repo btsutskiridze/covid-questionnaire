@@ -5,13 +5,13 @@
         <p>უკვე აცრილი ხარ?*</p>
         <template #options>
           <base-radio
-            value="yes"
+            value="true"
             name="had_vaccine"
             label-value="კი"
             @click="firstQuestion"
           />
           <base-radio
-            value="no"
+            value="false"
             name="had_vaccine"
             label-value="არა"
             @click="firstQuestion"
@@ -149,7 +149,7 @@ export default {
   },
   methods: {
     firstQuestion(e) {
-      if (e.target.checked && e.target.value === "yes") {
+      if (e.target.checked && e.target.value === "true") {
         localStorage.setItem("hadVaccine", e.target.value);
         this.hadVaccine = true;
       } else {

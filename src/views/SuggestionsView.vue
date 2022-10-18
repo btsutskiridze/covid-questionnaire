@@ -150,6 +150,7 @@ export default {
 
       if (checked1 && checked2) {
         console.log("submit");
+        this.$store.dispatch("validatefourthPage");
         this.$router.push({ name: "thankyou" });
       }
     },

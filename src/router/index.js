@@ -99,6 +99,32 @@ const router = createRouter({
       path: "/thankyou",
       name: "thankyou",
       component: EndView,
+      beforeEnter: (to, from, next) => {
+        //retriving values from storage
+        store.state.identificationValidated = JSON.parse(
+          localStorage.getItem("identificationValidated")
+        );
+        store.state.questionnaireValidated = JSON.parse(
+          localStorage.getItem("questionnaireValidated")
+        );
+        store.state.vaccinationValidated = JSON.parse(
+          localStorage.getItem("vaccinationValidated")
+        );
+        store.state.suggestionsValidated = JSON.parse(
+          localStorage.getItem("suggestionsValidated")
+        );
+        const pagesValid =
+          store.state.questionnaireValidated &&
+          store.state.identificationValidated &&
+          store.state.vaccinationValidated &&
+          store.state.suggestionsValidated;
+
+        if (pagesValid) {
+          next();
+          return;
+        }
+        next("/suggestions");
+      },
     },
     { path: "/:pathMatch(.*)*", name: "NotFound", redirect: "/" },
   ],
