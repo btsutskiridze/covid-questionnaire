@@ -1,11 +1,10 @@
+import store from "@/store";
+
 export default {
   namespaced: true,
   state() {
     return {
       vaccinationValidated: false,
-      had_vaccine: "",
-      vaccination_stage: "",
-      vaccination_stage_2: "",
     };
   },
 
@@ -14,12 +13,19 @@ export default {
     validateThirdPage() {
       localStorage.setItem("vaccinationValidated", true);
     },
-    collectData(context) {
-      context.state.had_vaccine = JSON.parse(getLocalStorage("had_vaccine"));
-      context.state.vaccination_stage = getLocalStorage("vaccination_stage");
-      context.state.vaccination_stage_2 = getLocalStorage(
-        "vaccination_stage_2"
+    collectData() {
+      store.state.dataToSubmit["had_vaccine"] = JSON.parse(
+        getLocalStorage("had_vaccine")
       );
+
+      if (store.state.dataToSubmit["had_vaccine"]) {
+        store.state.dataToSubmit["vaccination_stage"] =
+          getLocalStorage("vaccination_stage");
+      } else {
+        store.state.dataToSubmit["vaccination_stage_2"] = getLocalStorage(
+          "vaccination_stage_2"
+        );
+      }
     },
   },
 };

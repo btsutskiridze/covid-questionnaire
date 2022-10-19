@@ -1,12 +1,10 @@
+import store from "@/store";
+
 export default {
   namespaced: true,
   state() {
     return {
       suggestionsValidated: false,
-      non_formal_meetings: "",
-      number_of_days_from_office: "",
-      what_about_meetings_in_live: "",
-      tell_us_your_opinion_about_us: "",
     };
   },
 
@@ -15,21 +13,18 @@ export default {
     validatefourthPage() {
       localStorage.setItem("suggestionsValidated", true);
     },
-    collectData(context) {
-      context.state.non_formal_meetings = getLocalStorage(
+    collectData() {
+      store.state.dataToSubmit["non_formal_meetings"] = getLocalStorage(
         "non_formal_meetings"
       );
-
-      context.state.number_of_days_from_office = getLocalStorage(
-        "number_of_days_from_office"
+      store.state.dataToSubmit["number_of_days_from_office"] = JSON.parse(
+        getLocalStorage("numnumber_of_days_from_office")
       );
-      context.state.what_about_meetings_in_live = getLocalStorage(
+      store.state.dataToSubmit["what_about_meetings_in_live"] = getLocalStorage(
         "what_about_meetings_in_live"
       );
-
-      context.state.tell_us_your_opinion_about_us = getLocalStorage(
-        "tell_us_your_opinion_about_us"
-      );
+      store.state.dataToSubmit["tell_us_your_opinion_about_us"] =
+        getLocalStorage("tell_us_your_opinion_about_us");
     },
   },
 };

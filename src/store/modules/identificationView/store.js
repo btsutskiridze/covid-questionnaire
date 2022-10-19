@@ -1,13 +1,10 @@
+import store from "@/store";
+
 export default {
   namespaced: true,
   state() {
     return {
       identificationValidated: false,
-
-      first_name: "",
-      last_name: "",
-      email: "",
-      inputValue: "",
     };
   },
   actions: {
@@ -15,10 +12,10 @@ export default {
       localStorage.setItem("identificationValidated", true);
     },
 
-    collectData(context) {
-      context.state.first_name = getLocalStorage("first_name");
-      context.state.last_name = getLocalStorage("last_name");
-      context.state.email = getLocalStorage("email");
+    collectData() {
+      store.state.dataToSubmit["first_name"] = getLocalStorage("first_name");
+      store.state.dataToSubmit["last_name"] = getLocalStorage("last_name");
+      store.state.dataToSubmit["email"] = getLocalStorage("email");
     },
   },
 };

@@ -1,13 +1,10 @@
+import store from "@/store";
+
 export default {
   namespaced: true,
   state() {
     return {
       questionnaireValidated: false,
-      had_covid: "",
-      had_antibody_test: "",
-      test_date: "",
-      number: "",
-      covid_date: "",
     };
   },
 
@@ -32,14 +29,27 @@ export default {
         return true;
       }
     },
-    collectData(context) {
-      context.state.had_covid = getLocalStorage("had_covid");
-      context.state.had_antibody_test = getLocalStorage("had_antibody_test")
-        ? true
-        : false;
-      context.state.test_date = getLocalStorage("test_date");
-      context.state.number = getLocalStorage("number");
-      context.state.covid_date = getLocalStorage("covid_date");
+    collectData() {
+      store.state.dataToSubmit["had_covid"] = getLocalStorage("had_covid");
+
+      if (store.state.dataToSubmit["had_covid"] === "yes") {
+        store.state.dataToSubmit["had_antibody_test"] = getLocalStorage(
+          "had_antibody_test"
+        )
+          ? true
+          : false;
+      }
+
+      if (store.state.dataToSubmit["had_antibody_test"]) {
+        store.state.dataToSubmit["antibodies"] = {
+          test_date: new Date(getLocalStorage("test_date")).toISOString(),
+          number: JSON.parse(getLocalStorage("number")),
+        };
+      } else {
+        store.state.dataToSubmit["covid_date"] = new Date(
+          getLocalStorage("covid_date")
+        ).toISOString();
+      }
     },
   },
 };
