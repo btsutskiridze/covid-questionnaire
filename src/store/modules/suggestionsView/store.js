@@ -18,18 +18,19 @@ export default {
         "non_formal_meetings"
       );
       store.state.dataToSubmit["number_of_days_from_office"] = JSON.parse(
-        getLocalStorage("numnumber_of_days_from_office")
+        getLocalStorage("number_of_days_from_office")
       );
-      store.state.dataToSubmit["what_about_meetings_in_live"] = getLocalStorage(
-        "what_about_meetings_in_live"
-      );
-      store.state.dataToSubmit["tell_us_your_opinion_about_us"] =
-        getLocalStorage("tell_us_your_opinion_about_us");
+      if (getLocalStorage("what_about_meetings_in_live"))
+        store.state.dataToSubmit["what_about_meetings_in_live"] =
+          getLocalStorage("what_about_meetings_in_live");
+
+      if (getLocalStorage("tell_us_your_opinion_about_us"))
+        store.state.dataToSubmit["tell_us_your_opinion_about_us"] =
+          getLocalStorage("tell_us_your_opinion_about_us");
     },
   },
 };
 
 function getLocalStorage(value) {
-  console.log(localStorage.getItem(value));
   return localStorage.getItem(value) ? localStorage.getItem(value) : null;
 }

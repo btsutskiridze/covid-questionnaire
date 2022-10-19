@@ -156,7 +156,7 @@ export default {
         this.$store.dispatch("vaccination/collectData");
         this.$store.dispatch("suggestions/collectData");
 
-        this.$store.dispatch("collectData");
+        this.$store.dispatch("submitData");
 
         this.$store.dispatch("suggestions/validatefourthPage");
         this.$router.push({ name: "thankyou" });

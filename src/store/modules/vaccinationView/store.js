@@ -22,7 +22,7 @@ export default {
         store.state.dataToSubmit["vaccination_stage"] =
           getLocalStorage("vaccination_stage");
       } else {
-        store.state.dataToSubmit["vaccination_stage_2"] = getLocalStorage(
+        store.state.dataToSubmit["i_am_waiting"] = getLocalStorage(
           "vaccination_stage_2"
         );
       }
