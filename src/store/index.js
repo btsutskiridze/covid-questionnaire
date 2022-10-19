@@ -20,9 +20,7 @@ const store = createStore({
     saveData(context, payload) {
       localStorage.setItem(payload.key, payload.value);
     },
-    addData(state, payload) {
-      state.dataToSubmit[payload.key] = payload.value;
-    },
+
     async submitData(context) {
       try {
         const headers = {

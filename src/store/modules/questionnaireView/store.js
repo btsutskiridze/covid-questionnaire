@@ -5,6 +5,8 @@ export default {
   state() {
     return {
       questionnaireValidated: false,
+      hadCovid: false,
+      hadAntibodyTest: null,
     };
   },
 

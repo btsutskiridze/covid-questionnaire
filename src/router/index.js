@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import store from "@/store";
 import WelcomeView from "@/views/WelcomeView.vue";
-import IdentificationView from "@/views/IdentificationView.vue";
-import CovidQuestionnaireView from "@/views/CovidQuestionnaireView.vue";
-import VaccinationView from "@/views/VaccinationView.vue";
-import SuggestionsView from "@/views/SuggestionsView.vue";
+import IdentificationView from "@/views/identification/IndexView.vue";
+import CovidQuestionnaireView from "@/views/questionnaire/IndexView.vue";
+import VaccinationView from "@/views/vaccination/IndexView.vue";
+import SuggestionsView from "@/views/suggestions/IndexView.vue";
 import EndView from "@/views/EndView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

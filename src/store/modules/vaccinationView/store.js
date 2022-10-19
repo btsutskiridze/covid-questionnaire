@@ -5,6 +5,10 @@ export default {
   state() {
     return {
       vaccinationValidated: false,
+      hadVaccine: null,
+      onlyFirstVaccine: false,
+      notPlanningVaccine: false,
+      planningVaccine: false,
     };
   },
 
