@@ -34,7 +34,7 @@ import HadAntibodyTest from "@/views/questionnaire/HadAntibodyTest.vue";
 import TestDateAndNumber from "@/views/questionnaire/TestDateAndNumber.vue";
 import CovidDate from "@/views/questionnaire/CovidDate.vue";
 import { Form as VeeForm } from "vee-validate";
-import { mapActions } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   components: {
@@ -48,35 +48,28 @@ export default {
     return {};
   },
   computed: {
-    hadCovid: {
-      get() {
-        return this.$store.state.questionnaire.hadCovid;
-      },
-      set(value) {
-        this.$store.state.questionnaire.hadCovid = value;
-      },
-    },
-    hadAntibodyTest: {
-      get() {
-        return this.$store.state.questionnaire.hadAntibodyTest;
-      },
-      set(value) {
-        this.$store.state.questionnaire.hadAntibodyTest = value;
-      },
-    },
+    ...mapState({
+      hadCovid: (state) => state.questionnaire.hadCovid,
+      hadAntibodyTest: (state) => state.questionnaire.hadAntibodyTest,
+    }),
   },
+
   mounted() {
     if (localStorage.getItem("hadCovid")) {
-      this.hadCovid = true;
+      this.setHadCovid(true);
     }
     if (localStorage.getItem("hadAntibodyTest") === "true") {
-      this.hadAntibodyTest = true;
+      this.setHadAntibodyTest(true);
     } else if (localStorage.getItem("hadAntibodyTest") === "false") {
-      this.hadAntibodyTest = false;
+      this.setHadAntibodyTest(false);
     }
   },
 
   methods: {
+    ...mapMutations({
+      setHadCovid: "questionnaire/setHadCovid",
+      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
+    }),
     ...mapActions({
       validatePage: "questionnaire/validateSecondPage",
     }),

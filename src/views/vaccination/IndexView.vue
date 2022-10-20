@@ -31,7 +31,7 @@ import VaccinationStage from "@/views/vaccination/VaccinationStage.vue";
 import VaccinationStage2 from "@/views/vaccination/VaccinationStage2.vue";
 
 import { Form as VeeForm } from "vee-validate";
-import { mapActions } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   components: {
@@ -40,56 +40,37 @@ export default {
     VaccinationStage2,
     VeeForm,
   },
-  computed: {
-    hadVaccine: {
-      get() {
-        return this.$store.state.vaccination.hadVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.hadVaccine = value;
-      },
-    },
-    onlyFirstVaccine: {
-      get() {
-        return this.$store.state.vaccination.onlyFirstVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.onlyFirstVaccine = value;
-      },
-    },
-    notPlanningVaccine: {
-      get() {
-        return this.$store.state.vaccination.notPlanningVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.notPlanningVaccine = value;
-      },
-    },
-    planningVaccine: {
-      get() {
-        return this.$store.state.vaccination.planningVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.planningVaccine = value;
-      },
-    },
-  },
+
   mounted() {
-    this.hadVaccine = localStorage.getItem("hadVaccine") ? true : false;
+    this.setHadVaccine(localStorage.getItem("hadVaccine") ? true : false);
 
-    this.onlyFirstVaccine = localStorage.getItem("onlyFirstVaccine")
-      ? true
-      : false;
+    this.setOnlyFirstVaccine(
+      localStorage.getItem("onlyFirstVaccine") ? true : false
+    );
 
-    this.notPlanningVaccine = localStorage.getItem("notPlanningVaccine")
-      ? true
-      : false;
+    this.setNotPlanningVaccine(
+      localStorage.getItem("notPlanningVaccine") ? true : false
+    );
 
-    this.planningVaccine = localStorage.getItem("planningVaccine")
-      ? true
-      : false;
+    this.setPlanningVaccine(
+      localStorage.getItem("planningVaccine") ? true : false
+    );
+  },
+  computed: {
+    ...mapState({
+      hadVaccine: (state) => state.vaccination.hadVaccine,
+      onlyFirstVaccine: (state) => state.vaccination.onlyFirstVaccine,
+      notPlanningVaccine: (state) => state.vaccination.notPlanningVaccine,
+      planningVaccine: (state) => state.vaccination.planningVaccine,
+    }),
   },
   methods: {
+    ...mapMutations({
+      setHadVaccine: "vaccination/setHadVaccine",
+      setOnlyFirstVaccine: "vaccination/setOnlyFirstVaccine",
+      setNotPlanningVaccine: "vaccination/setNotPlanningVaccine",
+      setPlanningVaccine: "vaccination/setPlanningVaccine",
+    }),
     ...mapActions({
       validatePage: "vaccination/validateThirdPage",
     }),

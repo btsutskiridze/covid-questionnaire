@@ -11,8 +11,20 @@ export default {
       planningVaccine: false,
     };
   },
-
-  mutations: {},
+  mutations: {
+    setHadVaccine(state, value) {
+      state.hadVaccine = value;
+    },
+    setOnlyFirstVaccine(state, value) {
+      state.onlyFirstVaccine = value;
+    },
+    setNotPlanningVaccine(state, value) {
+      state.notPlanningVaccine = value;
+    },
+    setPlanningVaccine(state, value) {
+      state.planningVaccine = value;
+    },
+  },
   actions: {
     validateThirdPage() {
       localStorage.setItem("vaccinationValidated", true);

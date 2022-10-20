@@ -25,31 +25,21 @@
 
 <script>
 import BaseInput from "@/components/UI/form/BaseInput.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   components: {
     BaseInput,
   },
   computed: {
-    hadCovid: {
-      get() {
-        return this.$store.state.questionnaire.hadCovid;
-      },
-      set(value) {
-        this.$store.state.questionnaire.hadCovid = value;
-      },
-    },
-    hadAntibodyTest: {
-      get() {
-        return this.$store.state.questionnaire.hadAntibodyTest;
-      },
-      set(value) {
-        this.$store.state.questionnaire.hadAntibodyTest = value;
-      },
-    },
+    ...mapState({
+      hadAntibodyTest: (state) => state.questionnaire.hadAntibodyTest,
+    }),
   },
   methods: {
+    ...mapMutations({
+      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
+    }),
     ...mapActions({
       dateValidation: "questionnaire/dateValidation",
     }),

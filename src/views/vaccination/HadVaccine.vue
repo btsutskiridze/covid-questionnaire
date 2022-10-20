@@ -20,28 +20,27 @@
 
 <script>
 import BaseRadio from "@/components/UI/form/BaseRadio.vue";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   components: {
     BaseRadio,
   },
   computed: {
-    hadVaccine: {
-      get() {
-        return this.$store.state.vaccination.hadVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.hadVaccine = value;
-      },
-    },
+    ...mapState({
+      hadVaccine: (state) => state.vaccination.hadVaccine,
+    }),
   },
   methods: {
+    ...mapMutations({
+      setHadVaccine: "vaccination/setHadVaccine",
+    }),
     firstQuestion(e) {
       if (e.target.checked && e.target.value === "true") {
         localStorage.setItem("hadVaccine", e.target.value);
-        this.hadVaccine = true;
+        this.setHadVaccine(true);
       } else {
-        this.hadVaccine = false;
+        this.setHadVaccine(false);
         localStorage.removeItem("hadVaccine");
         // this.hadAntibodyTest = null;
         // localStorage.removeItem("hadAntibodyTest");

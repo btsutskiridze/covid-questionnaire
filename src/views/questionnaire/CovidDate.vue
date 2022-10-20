@@ -1,7 +1,5 @@
 <template>
-  <base-question-layout
-    v-if="this.$store.state.questionnaire.hadAntibodyTest === false"
-  >
+  <base-question-layout v-if="hadAntibodyTest === false">
     <p>
       მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი) <br />
       როდის გქონდა Covid-19*
@@ -22,23 +20,21 @@
 
 <script>
 import BaseInput from "@/components/UI/form/BaseInput.vue";
-import { mapActions } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   components: {
     BaseInput,
   },
   computed: {
-    hadAntibodyTest: {
-      get() {
-        return this.$store.state.questionnaire.hadAntibodyTest;
-      },
-      set(value) {
-        this.$store.state.questionnaire.hadAntibodyTest = value;
-      },
-    },
+    ...mapState({
+      hadAntibodyTest: (state) => state.questionnaire.hadAntibodyTest,
+    }),
   },
   methods: {
+    ...mapMutations({
+      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
+    }),
     ...mapActions({
       dateValidation: "questionnaire/dateValidation",
     }),

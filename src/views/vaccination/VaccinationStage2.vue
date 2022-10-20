@@ -41,60 +41,47 @@
 
 <script>
 import BaseRadio from "@/components/UI/form/BaseRadio.vue";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   components: {
     BaseRadio,
   },
   computed: {
-    hadVaccine: {
-      get() {
-        return this.$store.state.vaccination.hadVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.hadVaccine = value;
-      },
-    },
-    notPlanningVaccine: {
-      get() {
-        return this.$store.state.vaccination.notPlanningVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.notPlanningVaccine = value;
-      },
-    },
-    planningVaccine: {
-      get() {
-        return this.$store.state.vaccination.planningVaccine;
-      },
-      set(value) {
-        this.$store.state.vaccination.planningVaccine = value;
-      },
-    },
+    ...mapState({
+      hadVaccine: (state) => state.vaccination.hadVaccine,
+      notPlanningVaccine: (state) => state.vaccination.notPlanningVaccine,
+      planningVaccine: (state) => state.vaccination.planningVaccine,
+    }),
   },
   methods: {
+    ...mapMutations({
+      setHadVaccine: "vaccination/setHadVaccine",
+      setNotPlanningVaccine: "vaccination/setNotPlanningVaccine",
+      setPlanningVaccine: "vaccination/setPlanningVaccine",
+    }),
     thirdQuestion(e) {
       if (e.target.checked && e.target.value === "not_planning") {
         localStorage.setItem("notPlanningVaccine", "true");
-        this.notPlanningVaccine = true;
+        this.setNotPlanningVaccine(true);
 
         localStorage.removeItem("planningVaccine");
-        this.planningVaccine = false;
+        this.setPlanningVaccine(false);
       } else if (
         e.target.checked &&
         e.target.value === "had_covid_and_planning_to_get_vaccinated"
       ) {
         localStorage.setItem("planningVaccine", "true");
-        this.planningVaccine = true;
+        this.setPlanningVaccine(true);
 
         localStorage.removeItem("notPlanningVaccine");
-        this.notPlanningVaccine = false;
+        this.setNotPlanningVaccine(false);
       } else {
         localStorage.removeItem("planningVaccine");
-        this.planningVaccine = false;
+        this.setPlanningVaccine(false);
 
         localStorage.removeItem("notPlanningVaccine");
-        this.notPlanningVaccine = false;
+        this.setNotPlanningVaccine(false);
       }
     },
   },

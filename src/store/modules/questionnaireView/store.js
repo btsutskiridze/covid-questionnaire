@@ -10,7 +10,14 @@ export default {
     };
   },
 
-  mutations: {},
+  mutations: {
+    setHadCovid(state, value) {
+      state.hadCovid = value;
+    },
+    setHadAntibodyTest(state, value) {
+      state.hadAntibodyTest = value;
+    },
+  },
   actions: {
     validateSecondPage() {
       localStorage.setItem("questionnaireValidated", true);
@@ -63,6 +70,6 @@ export default {
 };
 
 function getLocalStorage(value) {
-  console.log(localStorage.getItem(value));
+  // console.log(localStorage.getItem(value));
   return localStorage.getItem(value) ? localStorage.getItem(value) : null;
 }
