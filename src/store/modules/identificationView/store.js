@@ -13,9 +13,18 @@ export default {
     },
 
     collectData() {
-      store.state.dataToSubmit["first_name"] = getLocalStorage("first_name");
-      store.state.dataToSubmit["last_name"] = getLocalStorage("last_name");
-      store.state.dataToSubmit["email"] = getLocalStorage("email");
+      store.commit("addData", {
+        key: "first_name",
+        value: getLocalStorage("first_name"),
+      });
+      store.commit("addData", {
+        key: "last_name",
+        value: getLocalStorage("last_name"),
+      });
+      store.commit("addData", {
+        key: "email",
+        value: getLocalStorage("email"),
+      });
     },
   },
 };

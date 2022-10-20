@@ -16,11 +16,20 @@ const store = createStore({
       dataToSubmit: {},
     };
   },
+  mutations: {
+    addData(state, payload) {
+      state.dataToSubmit[payload.key] = payload.value;
+    },
+  },
+  getters: {
+    dataItem: (state) => (key) => {
+      return state.dataToSubmit[key];
+    },
+  },
   actions: {
     saveData(context, payload) {
       localStorage.setItem(payload.key, payload.value);
     },
-
     async submitData(context) {
       try {
         const headers = {

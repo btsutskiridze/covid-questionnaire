@@ -18,17 +18,21 @@ export default {
       localStorage.setItem("vaccinationValidated", true);
     },
     collectData() {
-      store.state.dataToSubmit["had_vaccine"] = JSON.parse(
-        getLocalStorage("had_vaccine")
-      );
+      store.commit("addData", {
+        key: "had_vaccine",
+        value: JSON.parse(getLocalStorage("had_vaccine")),
+      });
 
-      if (store.state.dataToSubmit["had_vaccine"]) {
-        store.state.dataToSubmit["vaccination_stage"] =
-          getLocalStorage("vaccination_stage");
+      if (store.getters.dataItem("had_vaccine")) {
+        store.commit("addData", {
+          key: "vaccination_stage",
+          value: getLocalStorage("vaccination_stage"),
+        });
       } else {
-        store.state.dataToSubmit["i_am_waiting"] = getLocalStorage(
-          "vaccination_stage_2"
-        );
+        store.commit("addData", {
+          key: "i_am_waiting",
+          value: getLocalStorage("vaccination_stage_2"),
+        });
       }
     },
   },

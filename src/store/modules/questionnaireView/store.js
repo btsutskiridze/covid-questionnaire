@@ -32,25 +32,31 @@ export default {
       }
     },
     collectData() {
-      store.state.dataToSubmit["had_covid"] = getLocalStorage("had_covid");
+      store.commit("addData", {
+        key: "had_covid",
+        value: getLocalStorage("had_covid"),
+      });
 
-      if (store.state.dataToSubmit["had_covid"] === "yes") {
-        store.state.dataToSubmit["had_antibody_test"] = getLocalStorage(
-          "had_antibody_test"
-        )
-          ? true
-          : false;
+      if (store.getters.dataItem("had_covid") === "yes") {
+        store.commit("addData", {
+          key: "had_antibody_test",
+          value: getLocalStorage("had_antibody_test") ? true : false,
+        });
       }
 
-      if (store.state.dataToSubmit["had_antibody_test"]) {
-        store.state.dataToSubmit["antibodies"] = {
-          test_date: new Date(getLocalStorage("test_date")).toISOString(),
-          number: JSON.parse(getLocalStorage("number")),
-        };
+      if (store.getters.dataItem("had_antibody_test")) {
+        store.commit("addData", {
+          key: "antibodies",
+          value: {
+            test_date: new Date(getLocalStorage("test_date")).toISOString(),
+            number: JSON.parse(getLocalStorage("number")),
+          },
+        });
       } else {
-        store.state.dataToSubmit["covid_date"] = new Date(
-          getLocalStorage("covid_date")
-        ).toISOString();
+        store.commit("addData", {
+          key: "covid_date",
+          value: new Date(getLocalStorage("covid_date")).toISOString(),
+        });
       }
     },
   },

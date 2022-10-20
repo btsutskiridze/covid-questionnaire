@@ -8,25 +8,34 @@ export default {
     };
   },
 
-  mutations: {},
   actions: {
     validatefourthPage() {
       localStorage.setItem("suggestionsValidated", true);
     },
     collectData() {
-      store.state.dataToSubmit["non_formal_meetings"] = getLocalStorage(
-        "non_formal_meetings"
-      );
-      store.state.dataToSubmit["number_of_days_from_office"] = JSON.parse(
-        getLocalStorage("number_of_days_from_office")
-      );
-      if (getLocalStorage("what_about_meetings_in_live"))
-        store.state.dataToSubmit["what_about_meetings_in_live"] =
-          getLocalStorage("what_about_meetings_in_live");
+      store.commit("addData", {
+        key: "non_formal_meetings",
+        value: getLocalStorage("non_formal_meetings"),
+      });
 
-      if (getLocalStorage("tell_us_your_opinion_about_us"))
-        store.state.dataToSubmit["tell_us_your_opinion_about_us"] =
-          getLocalStorage("tell_us_your_opinion_about_us");
+      store.commit("addData", {
+        key: "number_of_days_from_office",
+        value: getLocalStorage("number_of_days_from_office"),
+      });
+
+      if (getLocalStorage("what_about_meetings_in_live")) {
+        store.commit("addData", {
+          key: "what_about_meetings_in_live",
+          value: getLocalStorage("what_about_meetings_in_live"),
+        });
+      }
+
+      if (getLocalStorage("tell_us_your_opinion_about_us")) {
+        store.commit("addData", {
+          key: "tell_us_your_opinion_about_us",
+          value: getLocalStorage("tell_us_your_opinion_about_us"),
+        });
+      }
     },
   },
 };
