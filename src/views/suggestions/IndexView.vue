@@ -92,7 +92,7 @@ export default {
         this.submitData();
 
         this.validatePage();
-        this.$router.push({ name: "thankyou" });
+        this.$router.push({ name: "thank-you" });
       }
     },
   },

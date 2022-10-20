@@ -96,8 +96,8 @@ const router = createRouter({
       },
     },
     {
-      path: "/thankyou",
-      name: "thankyou",
+      path: "/thank-you",
+      name: "thank-you",
       component: EndView,
       beforeEnter: (to, from, next) => {
         //retriving values from storage
