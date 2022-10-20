@@ -41,7 +41,7 @@
 
 <script>
 import BaseRadio from "@/components/UI/form/BaseRadio.vue";
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
     }),
   },
   methods: {
-    ...mapMutations({
+    ...mapActions({
       setHadVaccine: "vaccination/setHadVaccine",
       setNotPlanningVaccine: "vaccination/setNotPlanningVaccine",
       setPlanningVaccine: "vaccination/setPlanningVaccine",

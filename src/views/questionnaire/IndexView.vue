@@ -34,7 +34,7 @@ import HadAntibodyTest from "@/views/questionnaire/HadAntibodyTest.vue";
 import TestDateAndNumber from "@/views/questionnaire/TestDateAndNumber.vue";
 import CovidDate from "@/views/questionnaire/CovidDate.vue";
 import { Form as VeeForm } from "vee-validate";
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
@@ -66,11 +66,9 @@ export default {
   },
 
   methods: {
-    ...mapMutations({
+    ...mapActions({
       setHadCovid: "questionnaire/setHadCovid",
       setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
-    }),
-    ...mapActions({
       validatePage: "questionnaire/validateSecondPage",
     }),
     onsubmit() {

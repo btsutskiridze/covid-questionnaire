@@ -25,7 +25,7 @@
 
 <script>
 import BaseInput from "@/components/UI/form/BaseInput.vue";
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
@@ -37,10 +37,8 @@ export default {
     }),
   },
   methods: {
-    ...mapMutations({
-      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
-    }),
     ...mapActions({
+      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
       dateValidation: "questionnaire/dateValidation",
     }),
     toggleType(e) {

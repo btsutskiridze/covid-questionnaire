@@ -31,7 +31,7 @@ import VaccinationStage from "@/views/vaccination/VaccinationStage.vue";
 import VaccinationStage2 from "@/views/vaccination/VaccinationStage2.vue";
 
 import { Form as VeeForm } from "vee-validate";
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
@@ -65,13 +65,11 @@ export default {
     }),
   },
   methods: {
-    ...mapMutations({
+    ...mapActions({
       setHadVaccine: "vaccination/setHadVaccine",
       setOnlyFirstVaccine: "vaccination/setOnlyFirstVaccine",
       setNotPlanningVaccine: "vaccination/setNotPlanningVaccine",
       setPlanningVaccine: "vaccination/setPlanningVaccine",
-    }),
-    ...mapActions({
       validatePage: "vaccination/validateThirdPage",
     }),
     onsubmit() {

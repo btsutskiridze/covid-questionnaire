@@ -12,20 +12,33 @@ export default {
     };
   },
   mutations: {
-    setHadVaccine(state, value) {
+    hadVaccine(state, value) {
       state.hadVaccine = value;
     },
-    setOnlyFirstVaccine(state, value) {
+    onlyFirstVaccine(state, value) {
       state.onlyFirstVaccine = value;
     },
-    setNotPlanningVaccine(state, value) {
+    notPlanningVaccine(state, value) {
       state.notPlanningVaccine = value;
     },
-    setPlanningVaccine(state, value) {
+    planningVaccine(state, value) {
       state.planningVaccine = value;
     },
   },
   actions: {
+    setHadVaccine(context, value) {
+      context.commit("hadVaccine", value);
+    },
+    setOnlyFirstVaccine(context, value) {
+      context.commit("onlyFirstVaccine", value);
+    },
+    setNotPlanningVaccine(context, value) {
+      context.commit("notPlanningVaccine", value);
+    },
+    setPlanningVaccine(context, value) {
+      context.commit("planningVaccine", value);
+    },
+
     validateThirdPage() {
       localStorage.setItem("vaccinationValidated", true);
     },

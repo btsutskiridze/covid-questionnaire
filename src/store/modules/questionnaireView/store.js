@@ -11,14 +11,20 @@ export default {
   },
 
   mutations: {
-    setHadCovid(state, value) {
+    hadCovid(state, value) {
       state.hadCovid = value;
     },
-    setHadAntibodyTest(state, value) {
+    hadAntibodyTest(state, value) {
       state.hadAntibodyTest = value;
     },
   },
   actions: {
+    setHadCovid(context, value) {
+      context.commit("hadCovid", value);
+    },
+    setHadAntibodyTest(context, value) {
+      context.commit("hadAntibodyTest", value);
+    },
     validateSecondPage() {
       localStorage.setItem("questionnaireValidated", true);
     },
