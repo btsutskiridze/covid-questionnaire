@@ -33,7 +33,28 @@
 import { Field, ErrorMessage } from "vee-validate";
 
 export default {
-  props: ["name", "type", "labelValue", "placeholder", "inputRule"],
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: false,
+    },
+    labelValue: {
+      type: String,
+      required: false,
+    },
+    placeholder: {
+      type: String,
+      required: true,
+    },
+    inputRule: {
+      type: Function,
+      required: true,
+    },
+  },
   components: {
     Field,
     ErrorMessage,

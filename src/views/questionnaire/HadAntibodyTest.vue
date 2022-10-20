@@ -3,13 +3,13 @@
     <p>ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
     <template #options>
       <base-radio
-        :value="true"
+        value="true"
         name="had_antibody_test"
         label-value="კი"
         @click="secondQuestion"
       />
       <base-radio
-        :value="false"
+        value="false"
         name="had_antibody_test"
         label-value="არა"
         @click="secondQuestion"

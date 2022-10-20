@@ -26,7 +26,20 @@ export default {
   components: {
     Field,
   },
-  props: ["name", "value", "labelValue"],
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: false,
+    },
+    labelValue: {
+      type: String,
+      required: false,
+    },
+  },
   data() {
     return {};
   },

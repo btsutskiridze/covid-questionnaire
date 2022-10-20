@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  props: ["name"],
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
     saveData() {
       localStorage.setItem(this.name, this.$refs.textObj.value);
