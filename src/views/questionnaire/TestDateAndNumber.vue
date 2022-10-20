@@ -25,6 +25,8 @@
 
 <script>
 import BaseInput from "@/components/UI/form/BaseInput.vue";
+import { mapActions } from "vuex";
+
 export default {
   components: {
     BaseInput,
@@ -48,6 +50,9 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      dateValidation: "questionnaire/dateValidation",
+    }),
     toggleType(e) {
       e.target.type = e.target.type === "text" ? "date" : "text";
     },
@@ -55,7 +60,7 @@ export default {
     testDateValidation(value) {
       if (!this.hadAntibodyTest || this.hadAntibodyTest === null) return true;
       else {
-        return this.$store.dispatch("questionnaire/dateValidation", value);
+        return this.dateValidation(value);
       }
     },
     numberValidation(value) {

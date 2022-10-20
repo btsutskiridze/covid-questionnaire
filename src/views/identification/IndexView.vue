@@ -38,6 +38,8 @@ import FirstName from "@/views/identification/FirstName.vue";
 import LastName from "@/views/identification/LastName.vue";
 import UserEmail from "@/views/identification/UserEmail.vue";
 import { Form as VeeForm } from "vee-validate";
+import { mapActions } from "vuex";
+
 export default {
   components: {
     FirstName,
@@ -46,11 +48,14 @@ export default {
     VeeForm,
   },
   methods: {
+    ...mapActions({
+      validatePage: "identification/validateFirstPage",
+    }),
     onsubmit(values) {
       for (let key in values) {
         localStorage.setItem(key, values[key]);
       }
-      this.$store.dispatch("identification/validateFirstPage");
+      this.validatePage();
       this.$router.push({ name: "questionnaire" });
     },
   },

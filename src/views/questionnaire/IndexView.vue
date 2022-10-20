@@ -34,6 +34,7 @@ import HadAntibodyTest from "@/views/questionnaire/HadAntibodyTest.vue";
 import TestDateAndNumber from "@/views/questionnaire/TestDateAndNumber.vue";
 import CovidDate from "@/views/questionnaire/CovidDate.vue";
 import { Form as VeeForm } from "vee-validate";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -76,6 +77,9 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      validatePage: "questionnaire/validateSecondPage",
+    }),
     onsubmit() {
       const checked1 = document.querySelector('input[name="had_covid"]:checked')
         ? document.querySelector('input[name="had_covid"]:checked')
@@ -92,7 +96,7 @@ export default {
           checked1.value === "no" ||
           checked1.value == "now"
         ) {
-          this.$store.dispatch("questionnaire/validateSecondPage");
+          this.validatePage();
           this.$router.push({ name: "vaccination" });
         }
       }

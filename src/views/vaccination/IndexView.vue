@@ -31,6 +31,7 @@ import VaccinationStage from "@/views/vaccination/VaccinationStage.vue";
 import VaccinationStage2 from "@/views/vaccination/VaccinationStage2.vue";
 
 import { Form as VeeForm } from "vee-validate";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -89,6 +90,9 @@ export default {
       : false;
   },
   methods: {
+    ...mapActions({
+      validatePage: "vaccination/validateThirdPage",
+    }),
     onsubmit() {
       const checked1 = document.querySelector(
         'input[name="had_vaccine"]:checked'
@@ -101,7 +105,7 @@ export default {
       );
 
       if ((checked1 && checked2) || (checked1 && checked3)) {
-        this.$store.dispatch("vaccination/validateThirdPage");
+        this.validatePage();
         this.$router.push({ name: "suggestions" });
       }
     },

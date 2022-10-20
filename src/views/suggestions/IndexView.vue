@@ -48,6 +48,7 @@ import DaysFromOffice from "@/views/suggestions/DaysFromOffice.vue";
 import MeetingsInLive from "@/views/suggestions/MeetingsInLive.vue";
 import YourOpinion from "@/views/suggestions/YourOpinion.vue";
 import { Form as VeeForm } from "vee-validate";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -58,6 +59,14 @@ export default {
     VeeForm,
   },
   methods: {
+    ...mapActions({
+      validatePage: "suggestions/validatefourthPage",
+      identificationData: "identification/collectData",
+      questionnaireData: "questionnaire/collectData",
+      vaccinationData: "vaccination/collectData",
+      suggestionsData: "suggestions/collectData",
+      submitData: "submitData",
+    }),
     onsubmit() {
       const checked1 = document.querySelector(
         'input[name="non_formal_meetings"]:checked'
@@ -75,14 +84,14 @@ export default {
       if (checked1 && checked2) {
         console.log("submit");
 
-        this.$store.dispatch("identification/collectData");
-        this.$store.dispatch("questionnaire/collectData");
-        this.$store.dispatch("vaccination/collectData");
-        this.$store.dispatch("suggestions/collectData");
+        this.identificationData();
+        this.questionnaireData();
+        this.vaccinationData();
+        this.suggestionsData();
 
-        this.$store.dispatch("submitData");
+        this.submitData();
 
-        this.$store.dispatch("suggestions/validatefourthPage");
+        this.validatePage();
         this.$router.push({ name: "thankyou" });
       }
     },

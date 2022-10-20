@@ -31,6 +31,7 @@
 
 <script>
 import { Field, ErrorMessage } from "vee-validate";
+import { mapActions } from "vuex";
 
 export default {
   props: {
@@ -70,8 +71,11 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      saveValues: "saveData",
+    }),
     saveData() {
-      this.$store.dispatch("saveData", {
+      this.saveValues({
         key: this.name,
         value: this.value,
       });
