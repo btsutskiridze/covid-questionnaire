@@ -8,7 +8,12 @@
 <script>
 import TheHeader from "@/components/layout/TheHeader.vue";
 export default {
-  props: ["page"],
+  props: {
+    page: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     TheHeader,
   },

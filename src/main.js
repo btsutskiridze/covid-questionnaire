@@ -1,6 +1,8 @@
 import { createApp } from "vue";
+
 import App from "@/App.vue";
 import router from "@/router";
+import store from "@/store";
 import BaseContainer from "@/components/UI/BaseContainer.vue";
 import BaseQuestionLayout from "@/components/UI/BaseQuestionLayout.vue";
 import BaseQuestionsContainer from "@/components/UI/BaseQuestionsContainer.vue";
@@ -18,5 +20,6 @@ app.component("PreviousArrowIcon", PreviousArrowIcon);
 app.component("BaseQuestionLayout", BaseQuestionLayout);
 
 app.use(router);
+app.use(store);
 
 app.mount("#app");

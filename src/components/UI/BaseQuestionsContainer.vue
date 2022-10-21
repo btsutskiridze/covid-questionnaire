@@ -14,7 +14,12 @@
 
 <script>
 export default {
-  props: ["page"],
+  props: {
+    page: {
+      type: String,
+      required: true,
+    },
+  },
   components: {},
 };
 </script>
