@@ -9,13 +9,21 @@
       </div>
       <template #image>
         <img
-          class="w-[98%] relative top-[-1.1rem] left-4"
+          class="w-[98%] relative top-[-1.1rem] left-4 z-40"
           src="@/assets/images/questionnaire-view.png"
           alt="questionnaire-view"
         />
+        <questionnaire-circle-icon
+          class="absolute top-[25%] left-[48.4%] transition-all duration-75 ease-in-out"
+          v-motion
+          :initial="{ opacity: 0, x: 300, y: -100, width: 200, height: 200 }"
+          :enter="{ opacity: 1, x: 0, y: 0, height: 229, width: 229 }"
+        />
       </template>
       <template #arrows>
-        <div class="flex justify-center fixed left-[45%] bottom-[10%] gap-28">
+        <div
+          class="flex justify-center fixed left-[45%] bottom-[10%] gap-28 z-50"
+        >
           <router-link :to="{ name: 'identification' }">
             <previous-arrow-icon />
           </router-link>
@@ -29,6 +37,7 @@
 </template>
 
 <script>
+import QuestionnaireCircleIcon from "@/components/icons/views/QuestionnaireCircleIcon.vue";
 import HadCovid from "@/views/questionnaire/HadCovid.vue";
 import HadAntibodyTest from "@/views/questionnaire/HadAntibodyTest.vue";
 import TestDateAndNumber from "@/views/questionnaire/TestDateAndNumber.vue";
@@ -38,6 +47,7 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
+    QuestionnaireCircleIcon,
     HadCovid,
     HadAntibodyTest,
     TestDateAndNumber,
