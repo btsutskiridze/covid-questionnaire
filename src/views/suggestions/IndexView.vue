@@ -30,7 +30,7 @@
         <suggestions-heart-icon
           class="absolute top-[7%] left-[58%] transition-all duration-75 ease-in-out"
           v-motion
-          :initial="{ opacity: 0, x: -100, y: -100, width: 100, height: 100 }"
+          :initial="{ opacity: 0, x: -50, y: -100, width: 100, height: 100 }"
           :enter="{ opacity: 1, x: 0, y: 0, height: 173, width: 196 }"
         />
       </template>
