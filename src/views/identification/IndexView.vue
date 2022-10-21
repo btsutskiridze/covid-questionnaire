@@ -48,14 +48,12 @@ export default {
     VeeForm,
   },
   methods: {
-    ...mapActions({
-      validatePage: "identification/validateFirstPage",
-    }),
+    ...mapActions("identification", ["validateFirstPage"]),
     onsubmit(values) {
       for (let key in values) {
         localStorage.setItem(key, values[key]);
       }
-      this.validatePage();
+      this.validateFirstPage();
       this.$router.push({ name: "questionnaire" });
     },
   },

@@ -27,14 +27,10 @@ export default {
     BaseRadio,
   },
   computed: {
-    ...mapState({
-      hadVaccine: (state) => state.vaccination.hadVaccine,
-    }),
+    ...mapState("vaccination", ["hadVaccine"]),
   },
   methods: {
-    ...mapActions({
-      setHadVaccine: "vaccination/setHadVaccine",
-    }),
+    ...mapActions("vaccination", ["setHadVaccine"]),
     firstQuestion(e) {
       if (e.target.checked && e.target.value === "true") {
         localStorage.setItem("hadVaccine", e.target.value);

@@ -27,15 +27,11 @@ export default {
     BaseInput,
   },
   computed: {
-    ...mapState({
-      hadAntibodyTest: (state) => state.questionnaire.hadAntibodyTest,
-    }),
+    ...mapState("questionnaire", ["hadAntibodyTest"]),
   },
   methods: {
-    ...mapActions({
-      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
-      dateValidation: "questionnaire/dateValidation",
-    }),
+    ...mapActions("questionnaire", ["setHadAntibodyTest"]),
+    ...mapActions("questionnaire", ["dateValidation"]),
     toggleType(e) {
       e.target.type = e.target.type === "text" ? "date" : "text";
     },

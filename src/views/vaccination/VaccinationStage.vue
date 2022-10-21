@@ -40,16 +40,10 @@ export default {
     BaseRadio,
   },
   computed: {
-    ...mapState({
-      hadVaccine: (state) => state.vaccination.hadVaccine,
-      onlyFirstVaccine: (state) => state.vaccination.onlyFirstVaccine,
-    }),
+    ...mapState("vaccination", ["hadVaccine", "onlyFirstVaccine"]),
   },
   methods: {
-    ...mapActions({
-      setHadVaccine: "vaccination/setHadVaccine",
-      setOnlyFirstVaccine: "vaccination/setOnlyFirstVaccine",
-    }),
+    ...mapActions("vaccination", ["setHadVaccine", "setOnlyFirstVaccine"]),
     secondQuestion(e) {
       if (
         e.target.checked &&

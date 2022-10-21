@@ -48,18 +48,18 @@ export default {
     BaseRadio,
   },
   computed: {
-    ...mapState({
-      hadVaccine: (state) => state.vaccination.hadVaccine,
-      notPlanningVaccine: (state) => state.vaccination.notPlanningVaccine,
-      planningVaccine: (state) => state.vaccination.planningVaccine,
-    }),
+    ...mapState("vaccination", [
+      "hadVaccine",
+      "notPlanningVaccine",
+      "planningVaccine",
+    ]),
   },
   methods: {
-    ...mapActions({
-      setHadVaccine: "vaccination/setHadVaccine",
-      setNotPlanningVaccine: "vaccination/setNotPlanningVaccine",
-      setPlanningVaccine: "vaccination/setPlanningVaccine",
-    }),
+    ...mapActions("vaccination", [
+      "setHadVaccine",
+      "setNotPlanningVaccine",
+      "setPlanningVaccine",
+    ]),
     thirdQuestion(e) {
       if (e.target.checked && e.target.value === "not_planning") {
         localStorage.setItem("notPlanningVaccine", "true");

@@ -57,21 +57,22 @@ export default {
     );
   },
   computed: {
-    ...mapState({
-      hadVaccine: (state) => state.vaccination.hadVaccine,
-      onlyFirstVaccine: (state) => state.vaccination.onlyFirstVaccine,
-      notPlanningVaccine: (state) => state.vaccination.notPlanningVaccine,
-      planningVaccine: (state) => state.vaccination.planningVaccine,
-    }),
+    ...mapState("vaccination", [
+      "hadVaccine",
+      "onlyFirstVaccine",
+      "notPlanningVaccine",
+      "planningVaccine",
+    ]),
   },
   methods: {
-    ...mapActions({
-      setHadVaccine: "vaccination/setHadVaccine",
-      setOnlyFirstVaccine: "vaccination/setOnlyFirstVaccine",
-      setNotPlanningVaccine: "vaccination/setNotPlanningVaccine",
-      setPlanningVaccine: "vaccination/setPlanningVaccine",
-      validatePage: "vaccination/validateThirdPage",
-    }),
+    ...mapActions("vaccination", [
+      "setHadVaccine",
+      "setOnlyFirstVaccine",
+      "setNotPlanningVaccine",
+      "setPlanningVaccine",
+      "validateThirdPage",
+    ]),
+
     onsubmit() {
       const checked1 = document.querySelector(
         'input[name="had_vaccine"]:checked'
@@ -84,7 +85,7 @@ export default {
       );
 
       if ((checked1 && checked2) || (checked1 && checked3)) {
-        this.validatePage();
+        this.validateThirdPage();
         this.$router.push({ name: "suggestions" });
       }
     },

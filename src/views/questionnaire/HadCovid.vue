@@ -33,16 +33,10 @@ export default {
   },
 
   computed: {
-    ...mapState({
-      hadCovid: (state) => state.questionnaire.hadCovid,
-      hadAntibodyTest: (state) => state.questionnaire.hadAntibodyTest,
-    }),
+    ...mapState("questionnaire", ["hadCovid", "hadAntibodyTest"]),
   },
   methods: {
-    ...mapActions({
-      setHadCovid: "questionnaire/setHadCovid",
-      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
-    }),
+    ...mapActions("questionnaire", ["setHadAntibodyTest", "setHadCovid"]),
     firstQuestion(e) {
       if (e.target.checked && e.target.value === "yes") {
         localStorage.setItem("hadCovid", e.target.value);

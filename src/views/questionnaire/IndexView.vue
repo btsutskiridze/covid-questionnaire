@@ -48,10 +48,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState({
-      hadCovid: (state) => state.questionnaire.hadCovid,
-      hadAntibodyTest: (state) => state.questionnaire.hadAntibodyTest,
-    }),
+    ...mapState("questionnaire", ["hadCovid", "hadAntibodyTest"]),
   },
 
   mounted() {
@@ -66,11 +63,12 @@ export default {
   },
 
   methods: {
-    ...mapActions({
-      setHadCovid: "questionnaire/setHadCovid",
-      setHadAntibodyTest: "questionnaire/setHadAntibodyTest",
-      validatePage: "questionnaire/validateSecondPage",
-    }),
+    ...mapActions("questionnaire", [
+      "setHadAntibodyTest",
+      "setHadCovid",
+      "validateSecondPage",
+    ]),
+
     onsubmit() {
       const checked1 = document.querySelector('input[name="had_covid"]:checked')
         ? document.querySelector('input[name="had_covid"]:checked')
@@ -87,7 +85,7 @@ export default {
           checked1.value === "no" ||
           checked1.value == "now"
         ) {
-          this.validatePage();
+          this.validateSecondPage();
           this.$router.push({ name: "vaccination" });
         }
       }
