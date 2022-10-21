@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center gap-16 h-screen">
     <redberry-icon
-      class="transition-all duration-100 ease-linear"
+      class="transition-all duration-200 ease-linear"
       v-motion
       :initial="{ opacity: 0, y: 0, width: 2000, height: 2000 }"
       :enter="{ opacity: 1, y: 0, height: 120, height: 120 }"
