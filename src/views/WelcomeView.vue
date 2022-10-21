@@ -1,6 +1,11 @@
 <template>
   <div class="flex flex-col justify-center items-center gap-16 h-screen">
-    <redberry-icon />
+    <redberry-icon
+      class="transition-all duration-100 ease-linear"
+      v-motion
+      :initial="{ opacity: 0, y: 0, width: 2000, height: 2000 }"
+      :enter="{ opacity: 1, y: 0, height: 120, height: 120 }"
+    />
     <router-link :to="{ name: 'identification' }">
       <p
         class="relative font-bold tracking-wide text-[#232323] text-3xl leading-9 text-center z-10 cursor-pointer"
