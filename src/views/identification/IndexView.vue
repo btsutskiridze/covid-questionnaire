@@ -14,13 +14,21 @@
       </div>
       <template #image>
         <img
-          class="w-100% relative top-[-3.1rem] left-4"
+          class="w-100% relative top-[-3.1rem] left-4 z-40"
           src="@/assets/images/identification-view.png"
           alt="identification-view"
         />
+        <identification-square-icon
+          class="absolute top-[22%] left-[50%] transition-all duration-75 ease-in-out"
+          v-motion
+          :initial="{ opacity: 0, y: 200, width: 40, height: 40 }"
+          :enter="{ opacity: 1, y: 0, height: 75, width: 622 }"
+        />
       </template>
       <template #arrows>
-        <div class="flex justify-center fixed left-[45%] bottom-[10%] gap-28">
+        <div
+          class="flex justify-center fixed left-[45%] bottom-[10%] gap-28 z-50"
+        >
           <router-link :to="{ name: 'home' }" class="invisible">
             <previous-arrow-icon />
           </router-link>
@@ -34,6 +42,7 @@
 </template>
 
 <script>
+import IdentificationSquareIcon from "@/components/icons/views/IdentificationSquareIcon.vue";
 import FirstName from "@/views/identification/FirstName.vue";
 import LastName from "@/views/identification/LastName.vue";
 import UserEmail from "@/views/identification/UserEmail.vue";
@@ -42,18 +51,21 @@ import { mapActions } from "vuex";
 
 export default {
   components: {
+    IdentificationSquareIcon,
     FirstName,
     LastName,
     UserEmail,
     VeeForm,
   },
   methods: {
-    ...mapActions("identification", ["validateFirstPage"]),
+    ...mapActions({
+      validatePage: "identification/validateFirstPage",
+    }),
     onsubmit(values) {
       for (let key in values) {
         localStorage.setItem(key, values[key]);
       }
-      this.validateFirstPage();
+      this.validatePage();
       this.$router.push({ name: "questionnaire" });
     },
   },

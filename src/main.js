@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-
+import { MotionPlugin } from "@vueuse/motion";
 import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
@@ -21,5 +21,6 @@ app.component("BaseQuestionLayout", BaseQuestionLayout);
 
 app.use(router);
 app.use(store);
+app.use(MotionPlugin);
 
 app.mount("#app");

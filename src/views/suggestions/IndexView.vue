@@ -23,13 +23,21 @@
       </div>
       <template #image>
         <img
-          class="w-[76%] relative left-[16%] mt-[4.4rem]"
+          class="w-[76%] relative left-[16%] mt-[4.4rem] z-40"
           src="@/assets/images/suggestions-view.png"
           alt="suggestions-view"
         />
+        <suggestions-heart-icon
+          class="absolute top-[7%] left-[58%] transition-all duration-75 ease-in-out"
+          v-motion
+          :initial="{ opacity: 0, x: -50, y: -100, width: 100, height: 100 }"
+          :enter="{ opacity: 1, x: 0, y: 0, height: 173, width: 196 }"
+        />
       </template>
       <template #arrows>
-        <div class="flex justify-center fixed left-[45%] bottom-[10%] gap-28">
+        <div
+          class="flex justify-center fixed left-[45%] bottom-[10%] gap-28 -50"
+        >
           <router-link :to="{ name: 'vaccination' }">
             <previous-arrow-icon />
           </router-link>
@@ -43,6 +51,7 @@
 </template>
 
 <script>
+import SuggestionsHeartIcon from "@/components/icons/views/SuggestionsHeartIcon.vue";
 import NonFormalMeetings from "@/views/suggestions/NonFormalMeetings.vue";
 import DaysFromOffice from "@/views/suggestions/DaysFromOffice.vue";
 import MeetingsInLive from "@/views/suggestions/MeetingsInLive.vue";
@@ -52,6 +61,7 @@ import { mapActions } from "vuex";
 
 export default {
   components: {
+    SuggestionsHeartIcon,
     NonFormalMeetings,
     DaysFromOffice,
     MeetingsInLive,

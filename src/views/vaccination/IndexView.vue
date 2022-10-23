@@ -6,13 +6,21 @@
       <vaccination-stage-2 />
       <template #image>
         <img
-          class="w-[84%] relative mt-8 left-[15%]"
+          class="w-[84%] relative mt-8 left-[15%] z-40"
           src="@/assets/images/vaccination-view.png"
           alt="vaccination-view"
         />
+        <vaccination-star-icon
+          class="absolute top-[2%] left-[54%] transition-all duration-75 ease-in-out"
+          v-motion
+          :initial="{ opacity: 0, x: -100, y: 400, width: 200, height: 200 }"
+          :enter="{ opacity: 1, x: 0, y: 0, height: 313, width: 288 }"
+        />
       </template>
       <template #arrows>
-        <div class="flex justify-center fixed left-[45%] bottom-[10%] gap-28">
+        <div
+          class="flex justify-center fixed left-[45%] bottom-[10%] gap-28 z-50"
+        >
           <router-link :to="{ name: 'questionnaire' }">
             <previous-arrow-icon />
           </router-link>
@@ -26,6 +34,7 @@
 </template>
 
 <script>
+import VaccinationStarIcon from "@/components/icons/views/VaccinationStarIcon.vue";
 import HadVaccine from "@/views/vaccination/HadVaccine.vue";
 import VaccinationStage from "@/views/vaccination/VaccinationStage.vue";
 import VaccinationStage2 from "@/views/vaccination/VaccinationStage2.vue";
@@ -35,6 +44,7 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
+    VaccinationStarIcon,
     HadVaccine,
     VaccinationStage,
     VaccinationStage2,
