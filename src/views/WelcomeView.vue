@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col justify-center items-center gap-16 h-screen">
+  <div
+    class="flex flex-col justify-center items-center gap-16 h-screen overflow-hidden"
+  >
     <redberry-icon
       class="transition-all duration-200 ease-linear"
       v-motion
