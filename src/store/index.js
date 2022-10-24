@@ -36,17 +36,14 @@ const store = createStore({
           accept: "application/json",
           "Content-Type": "application/json",
         };
-        const response = await fetch("https://covid19.devtest.ge/api/create", {
+        fetch("https://covid19.devtest.ge/api/create", {
           method: "POST",
           headers: headers,
           body: JSON.stringify(context.state.dataToSubmit),
         });
-        const data = await response;
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
-      console.log(JSON.parse(JSON.stringify(context.state.dataToSubmit)));
     },
   },
 });
