@@ -1,5 +1,5 @@
 <template>
-  <base-question-layout v-show="hadVaccine === false">
+  <base-question-layout v-if="hadVaccine === false">
     <p>რას ელოდები?*</p>
     <template #options>
       <base-radio
