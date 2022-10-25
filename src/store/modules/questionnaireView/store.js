@@ -56,19 +56,18 @@ export default {
           value: JSON.parse(getLocalStorage("had_antibody_test")),
         });
       }
-
       if (store.getters.dataItem("had_antibody_test")) {
         store.commit("addData", {
           key: "antibodies",
           value: {
-            test_date: new Date(getLocalStorage("test_date")).toISOString(),
+            test_date: convertDate(getLocalStorage("test_date")),
             number: JSON.parse(getLocalStorage("number")),
           },
         });
       } else {
         store.commit("addData", {
           key: "covid_sickness_date",
-          value: getLocalStorage("covid_sickness_date"),
+          value: convertDate(getLocalStorage("covid_sickness_date")),
         });
       }
     },
@@ -76,6 +75,11 @@ export default {
 };
 
 function getLocalStorage(value) {
-  // console.log(localStorage.getItem(value));
   return localStorage.getItem(value) ? localStorage.getItem(value) : null;
+}
+
+function convertDate(value) {
+  const [year, month, day] = value.split("-");
+  const result = [month, day, year].join("/");
+  return result;
 }

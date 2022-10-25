@@ -63,6 +63,5 @@ export default {
   },
 };
 function getLocalStorage(value) {
-  console.log(localStorage.getItem(value));
   return localStorage.getItem(value) ? localStorage.getItem(value) : null;
 }

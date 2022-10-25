@@ -1,16 +1,16 @@
-# covid-questionnaire
+# Covid Questionnaire
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+This is a project about covid pandemi. There is asked questions according to vaccination, covid sickness and more.
 
 ## Project Setup
+
+### First of all you need to clone covid questionnaire repository from github:
+
+```sh
+git clone https://github.com/RedberryInternship/bakar-tsutskiridze-covid-questionary.git
+```
+
+### Next step requires install all the dependencies.
 
 ```sh
 npm install
@@ -32,4 +32,10 @@ npm run build
 
 ```sh
 npm run lint
+```
+
+### For running on localhost
+
+```sh
+npm run serve
 ```

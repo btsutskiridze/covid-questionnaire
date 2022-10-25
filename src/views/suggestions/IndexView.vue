@@ -92,8 +92,6 @@ export default {
         : null;
 
       if (checked1 && checked2) {
-        console.log("submit");
-
         this.identificationData();
         this.questionnaireData();
         this.vaccinationData();
