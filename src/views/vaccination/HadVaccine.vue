@@ -35,7 +35,7 @@ export default {
       if (e.target.checked && e.target.value === "true") {
         localStorage.setItem("hadVaccine", e.target.value);
         this.setHadVaccine(true);
-      } else if (e.target.checked) {
+      } else if (e.target.checked && e.target.value === "false") {
         this.setHadVaccine(false);
         localStorage.setItem("hadVaccine", e.target.value);
         // this.hadAntibodyTest = null;
