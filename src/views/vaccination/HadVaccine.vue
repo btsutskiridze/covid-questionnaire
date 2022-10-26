@@ -41,6 +41,8 @@ export default {
         // this.hadAntibodyTest = null;
         // localStorage.removeItem("hadAntibodyTest");
         // localStorage.removeItem("had_antibody_test");
+      } else {
+        localStorage.removeItem("hadVaccine");
       }
     },
   },

@@ -93,7 +93,7 @@ export default {
         if (
           (checked1.value === "yes" && checked2) ||
           checked1.value === "no" ||
-          checked1.value == "now"
+          checked1.value == "have_right_now"
         ) {
           this.validateSecondPage();
           this.$router.push({ name: "vaccination" });
