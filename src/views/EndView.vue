@@ -41,8 +41,5 @@ export default {
     BigStarIcon,
     SmallStarIcon,
   },
-  beforeCreate() {
-    localStorage.clear();
-  },
 };
 </script>
