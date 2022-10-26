@@ -15,7 +15,7 @@
         @click="secondQuestion"
       />
       <base-radio
-        value="first_dosage_and_not_registered_on_the_second"
+        value="first_dosage_and_not_registered_yet"
         name="vaccination_stage"
         label-value="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"
         @click="secondQuestion"
