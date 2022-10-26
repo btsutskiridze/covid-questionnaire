@@ -56,7 +56,7 @@ export default {
           value: JSON.parse(getLocalStorage("had_antibody_test")),
         });
       }
-      if (store.getters.dataItem("had_antibody_test")) {
+      if (store.getters.dataItem("had_antibody_test") === true) {
         store.commit("addData", {
           key: "antibodies",
           value: {
@@ -64,7 +64,8 @@ export default {
             number: JSON.parse(getLocalStorage("number")),
           },
         });
-      } else {
+      }
+      if (store.getters.dataItem("had_antibody_test") === false) {
         store.commit("addData", {
           key: "covid_sickness_date",
           value: convertDate(getLocalStorage("covid_sickness_date")),
