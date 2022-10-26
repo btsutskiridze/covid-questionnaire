@@ -56,7 +56,7 @@ export default {
       this.setHadVaccine(true);
     } else if (localStorage.getItem("hadVaccine") === "false") {
       this.setHadVaccine(false);
-    } else {
+    } else if (localStorage.getItem("hadVaccine") == null) {
       this.setHadVaccine(null);
     }
 
