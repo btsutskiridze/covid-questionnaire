@@ -69,7 +69,7 @@ export default {
         this.setPlanningVaccine(false);
       } else if (
         e.target.checked &&
-        e.target.value === "had_covid_and_planning_to_get_vaccinated"
+        e.target.value === "had_covid_and_planning_to_be_vaccinated"
       ) {
         localStorage.setItem("planningVaccine", "true");
         this.setPlanningVaccine(true);

@@ -47,7 +47,7 @@ export default {
     secondQuestion(e) {
       if (
         e.target.checked &&
-        e.target.value === "first_dosage_and_not_registered_on_the_second"
+        e.target.value === "first_dosage_and_not_registered_yet"
       ) {
         localStorage.setItem("onlyFirstVaccine", "true");
         this.setOnlyFirstVaccine(true);
