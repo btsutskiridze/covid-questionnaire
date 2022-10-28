@@ -17,12 +17,12 @@
         label-value="კვირაში ერთხელ"
       />
       <base-radio
-        value="once_in_two_weeks"
+        value="once_in_a_two_weeks"
         name="non_formal_meetings"
         label-value="ორ კვირაში ერთხელ"
       />
       <base-radio
-        value="once_a_month"
+        value="once_in_a_month"
         name="non_formal_meetings"
         label-value="თვეში ერთხელ"
       />

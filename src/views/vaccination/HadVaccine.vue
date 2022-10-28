@@ -35,12 +35,14 @@ export default {
       if (e.target.checked && e.target.value === "true") {
         localStorage.setItem("hadVaccine", e.target.value);
         this.setHadVaccine(true);
-      } else {
+      } else if (e.target.checked && e.target.value === "false") {
         this.setHadVaccine(false);
-        localStorage.removeItem("hadVaccine");
+        localStorage.setItem("hadVaccine", e.target.value);
         // this.hadAntibodyTest = null;
         // localStorage.removeItem("hadAntibodyTest");
         // localStorage.removeItem("had_antibody_test");
+      } else {
+        localStorage.removeItem("hadVaccine");
       }
     },
   },

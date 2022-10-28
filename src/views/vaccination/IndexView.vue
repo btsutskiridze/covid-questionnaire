@@ -52,7 +52,13 @@ export default {
   },
 
   mounted() {
-    this.setHadVaccine(localStorage.getItem("hadVaccine") ? true : null);
+    if (localStorage.getItem("hadVaccine") === "true") {
+      this.setHadVaccine(true);
+    } else if (localStorage.getItem("hadVaccine") === "false") {
+      this.setHadVaccine(false);
+    } else if (localStorage.getItem("hadVaccine") == null) {
+      this.setHadVaccine(null);
+    }
 
     this.setOnlyFirstVaccine(
       localStorage.getItem("onlyFirstVaccine") ? true : false

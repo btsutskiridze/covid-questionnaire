@@ -15,7 +15,7 @@
         @click="firstQuestion"
       />
       <base-radio
-        value="now"
+        value="have_right_now"
         name="had_covid"
         label-value="ახლა მაქვს"
         @click="firstQuestion"

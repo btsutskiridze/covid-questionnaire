@@ -3,7 +3,7 @@
     <p>რას ელოდები?*</p>
     <template #options>
       <base-radio
-        value="registered_and_waiting_for_the_date"
+        value="registered_and_waiting"
         name="vaccination_stage_2"
         label-value="დარეგისტრირებული ვარ და ველოდები რიცხვს"
         @click="thirdQuestion"
@@ -15,7 +15,7 @@
         @click="thirdQuestion"
       />
       <base-radio
-        value="had_covid_and_planning_to_get_vaccinated"
+        value="had_covid_and_planning_to_be_vaccinated"
         name="vaccination_stage_2"
         label-value="გადატანილი მაქვს და ვგეგმავ აცრას"
         @click="thirdQuestion"
@@ -69,7 +69,7 @@ export default {
         this.setPlanningVaccine(false);
       } else if (
         e.target.checked &&
-        e.target.value === "had_covid_and_planning_to_get_vaccinated"
+        e.target.value === "had_covid_and_planning_to_be_vaccinated"
       ) {
         localStorage.setItem("planningVaccine", "true");
         this.setPlanningVaccine(true);
